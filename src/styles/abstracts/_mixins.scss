@@ -1,10 +1,45 @@
 @use 'sass:math';
+@use 'variables';
 
 @function calculateRem($size) {
+    @return math.div($size, 16px) * 1rem;
+    @if math.is-unitless($size) {
+        $size: $size * 1px;
+    } @else if unit($size) != 'px' {
+        @error "calculateRem() expects a px value, got #{unit($size)}";
+    }
     @return math.div($size, 16px) * 1rem;
 }
 
 @mixin fontSize($size) {
     font-size: $size;
     font-size: calculateRem($size);
+}
+
+@mixin text-style($size, $weight: 400, $family: $font-poppins) {
+    font-family: $family;
+    font-weight: $weight;
+    font-size: $size;
+}
+
+$bp-large: 1728;
+$bp-tablet: 1024;
+$bp-phone: 428;
+
+@mixin respond-desktop {
+    @media (max-width: $bp-large) {
+        @content;
+    }
+}
+
+@mixin respond-desktop {
+    @media (max-width: $bp-tablet) {
+        @content;
+    }
+}
+
+@mixin respond-desktop {
+    @media (max-width: $bp-phone) {
+        @content;
+    }
 }

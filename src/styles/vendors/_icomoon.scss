@@ -1,6 +1,4 @@
 @use '../abstracts/variables' as *;
-$icomoon-font-family: 'icomoon';
-$icomoon-font-path: '/assets/fonts/icomoon/';
 
 @font-face {
     font-family: '#{$icomoon-font-family}';
@@ -37,46 +35,48 @@ $icomoon-font-path: '/assets/fonts/icomoon/';
 .icon-Right-Arrow {
     &:before {
         content: $icon-Right-Arrow;
-        color: #fff;
+        color: $full-white;
     }
 }
 .icon-Logo {
     &:before {
         content: $icon-Logo;
+        color: $satsuma;
     }
 }
 .icon-Bag {
     &:before {
         content: $icon-Bag;
-        color: #002f52;
+        color: $green-vogue;
     }
 }
 .icon-Star {
     &:before {
         content: $icon-Star;
-        color: #eb9b00;
+        color: $satsuma;
     }
 }
 .icon-Avatar {
     &:before {
         content: $icon-Avatar;
-        color: #002f52;
+        color: $green-vogue;
     }
 }
 .icon-Search {
     &:before {
         content: $icon-Search;
-        color: #fff;
+        color: $full-white;
     }
 }
 .icon-Left-Arrow {
     &:before {
         content: $icon-Left-Arrow;
-        color: #fff;
+        color: $full-white;
     }
 }
 .icon-Email {
     &:before {
         content: $icon-Email;
+        color: $green-vogue;
     }
 }

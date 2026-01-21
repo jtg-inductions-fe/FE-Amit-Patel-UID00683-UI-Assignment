@@ -1,48 +1,49 @@
 @font-face {
     font-family: 'Poppins';
-    src: url('/assets/fonts/poppins/Poppins-Bold.ttf') format('ttf');
+    src: url('/assets/fonts/poppins/Poppins-Bold.ttf') format('truetype');
     font-weight: 700;
-    font-size: normal;
+    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url('/assets/fonts/poppins/Poppins-Medium.ttf') format('ttf');
+    src: url('/assets/fonts/poppins/Poppins-Medium.ttf') format('truetype');
     font-weight: 500;
-    font-size: normal;
+    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url('/assets/fonts/poppins/Poppins-Regular.ttf') format('ttf');
+    src: url('/assets/fonts/poppins/Poppins-Regular.ttf') format('truetype');
     font-weight: 400;
-    font-size: normal;
+    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url('/assets/fonts/poppins/Poppins-Light.ttf') format('ttf');
+    src: url('/assets/fonts/poppins/Poppins-Light.ttf') format('truetype');
     font-weight: 300;
-    font-size: normal;
+    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Josephin Sans';
-    src: url('/assets/fonts/josephin-sans/JosephinSans-Bold.ttf') format('ttf');
+    src: url('/assets/fonts/josefin-sans/JosefinSans-Bold.ttf')
+        format('truetype');
     font-weight: 700;
-    font-size: normal;
+    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Josephin Sans';
-    src: url('/assets/fonts/josephin-sans/JosephinSans-Regular.ttf')
-        format('ttf');
+    src: url('/assets/fonts/josefin-sans/JosefinSans-Regular.ttf')
+        format('truetype');
     font-weight: 400;
-    font-size: normal;
+    font-style: normal;
     font-display: swap;
 }
