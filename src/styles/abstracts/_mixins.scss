@@ -2,7 +2,6 @@
 @use 'variables';
 
 @function calculateRem($size) {
-    @return math.div($size, 16px) * 1rem;
     @if math.is-unitless($size) {
         $size: $size * 1px;
     } @else if unit($size) != 'px' {
