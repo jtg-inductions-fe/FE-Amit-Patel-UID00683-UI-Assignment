@@ -1,5 +1,5 @@
 @use 'sass:math';
-@use 'variables';
+@use 'variables' as *;
 
 @function calculateRem($size) {
     @if math.is-unitless($size) {
@@ -20,10 +20,6 @@
     font-weight: $weight;
     font-size: $size;
 }
-
-$bp-large: 1728;
-$bp-tablet: 1024;
-$bp-phone: 428;
 
 @mixin respond-desktop {
     @media (max-width: $bp-large) {
