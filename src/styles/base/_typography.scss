@@ -1,5 +1,5 @@
-@use '../abstracts/variables';
-@use '../abstracts/mixins';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -19,7 +19,7 @@ body {
 }
 
 .text-primary-24 {
-    @include text-style(26px, 700);
+    @include text-style(24px, 700);
 }
 
 .text-primary-18 {
