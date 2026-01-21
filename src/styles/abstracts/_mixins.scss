@@ -16,7 +16,7 @@
     font-size: calculateRem($size);
 }
 
-@mixin text-style($size, $weight: 400, $family: $font-poppins) {
+@mixin text-style($size, $weight: 400, $family: sans-serif) {
     font-family: $family;
     font-weight: $weight;
     font-size: $size;
@@ -32,13 +32,13 @@ $bp-phone: 428;
     }
 }
 
-@mixin respond-desktop {
+@mixin respond-tablet {
     @media (max-width: $bp-tablet) {
         @content;
     }
 }
 
-@mixin respond-desktop {
+@mixin respond-phone {
     @media (max-width: $bp-phone) {
         @content;
     }
