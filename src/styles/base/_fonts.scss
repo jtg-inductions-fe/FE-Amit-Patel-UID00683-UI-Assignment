@@ -1,49 +1,21 @@
-@font-face {
-    font-family: 'Poppins';
-    src: url('/assets/fonts/poppins/Poppins-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
+@use '../abstracts/mixins' as *;
 
-@font-face {
-    font-family: 'Poppins';
-    src: url('/assets/fonts/poppins/Poppins-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
+@include font-face('Poppins', '/assets/fonts/poppins/Poppins-Light.ttf', 300);
 
-@font-face {
-    font-family: 'Poppins';
-    src: url('/assets/fonts/poppins/Poppins-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
+@include font-face('Poppins', '/assets/fonts/poppins/Poppins-Regular.ttf', 400);
 
-@font-face {
-    font-family: 'Poppins';
-    src: url('/assets/fonts/poppins/Poppins-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
+@include font-face('Poppins', '/assets/fonts/poppins/Poppins-Medium.ttf', 500);
 
-@font-face {
-    font-family: 'Josefin Sans';
-    src: url('/assets/fonts/josefin-sans/JosefinSans-Bold.ttf')
-        format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
+@include font-face('Poppins', '/assets/fonts/poppins/Poppins-Bold.ttf', 700);
 
-@font-face {
-    font-family: 'Josefin Sans';
-    src: url('/assets/fonts/josefin-sans/JosefinSans-Regular.ttf')
-        format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
+@include font-face(
+    'Josefin Sans',
+    '/assets/fonts/josefin-sans/JosefinSans-Regular.ttf',
+    400
+);
+
+@include font-face(
+    'Josefin Sans',
+    '/assets/fonts/josefin-sans/JosefinSans-Bold.ttf',
+    700
+);

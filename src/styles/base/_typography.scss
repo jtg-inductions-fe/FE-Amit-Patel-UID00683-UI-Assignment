@@ -1,72 +1,57 @@
-@use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
 
 body {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: pxToRem(16px);
     line-height: 1.5;
-    color: $full-black;
+    color: $color-full-black;
 }
 
-// Primary
+.text {
+    font-family: 'Poppins', sans-serif;
 
-.text-primary-36 {
-    @include text-style(36px, 700);
-}
+    &--36 {
+        font-size: pxToRem(36);
+    }
 
-.text-primary-26 {
-    @include text-style(26px, 700);
-}
+    &--30 {
+        font-size: pxToRem(30);
+    }
 
-.text-primary-24 {
-    @include text-style(24px, 700);
-}
+    &--26 {
+        font-size: pxToRem(26);
+    }
 
-.text-primary-18 {
-    @include text-style(18px, 700);
-}
+    &--24 {
+        font-size: pxToRem(24);
+    }
 
-.text-primary-16 {
-    @include text-style(16px, 700);
-}
+    &--18 {
+        font-size: pxToRem(18);
+    }
 
-// Secondary
+    &--16 {
+        font-size: pxToRem(16);
+    }
 
-.text-secondary-24 {
-    @include text-style(24px, 400);
-}
+    &--bold {
+        font-weight: 700;
+    }
 
-.text-secondary-18 {
-    @include text-style(18px, 400);
-}
+    &--medium {
+        font-weight: 500;
+    }
 
-.text-secondary-16 {
-    @include text-style(16px, 400);
-}
+    &--regular {
+        font-weight: 400;
+    }
 
-// Tertiary
+    &--light {
+        font-weight: 300;
+    }
 
-.text-tertiary-24 {
-    @include text-style(24px, 500);
-}
-
-.text-tertiary-16 {
-    @include text-style(16px, 500);
-}
-
-// Light
-
-.text-light-16 {
-    @include text-style(16px, 300);
-}
-
-// Josephin
-
-.text-josefin-30-bold {
-    font-family: 'Josefin Sans';
-    @include text-style(30px, 700, 'Josefin Sans');
-}
-
-.text-josefin-30-regular {
-    @include text-style(30px, 400, 'Josefin Sans');
+    &--josefin {
+        font-family: 'Josefin Sans', sans-serif;
+    }
 }

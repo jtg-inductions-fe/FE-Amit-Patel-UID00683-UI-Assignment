@@ -1,6 +1,6 @@
 {
-    "name": "static-html-base-template",
-    "description": "",
+    "name": "fe-static-website",
+    "description": "A static single paged responsive website.",
     "keywords": [],
     "version": "0.0.0",
     "private": true,

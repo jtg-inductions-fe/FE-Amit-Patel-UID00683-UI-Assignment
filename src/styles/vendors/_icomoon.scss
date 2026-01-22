@@ -2,15 +2,15 @@
 
 @font-face {
     font-family: '#{$icomoon-font-family}';
-    src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?b19jv0');
+    src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?ubp60c');
     src:
-        url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?b19jv0#iefix')
+        url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?ubp60c#iefix')
             format('embedded-opentype'),
-        url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?b19jv0')
+        url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?ubp60c')
             format('truetype'),
-        url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?b19jv0')
+        url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?ubp60c')
             format('woff'),
-        url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?b19jv0##{$icomoon-font-family}')
+        url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?ubp60c##{$icomoon-font-family}')
             format('svg');
     font-weight: normal;
     font-style: normal;
@@ -32,51 +32,51 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-Right-Arrow {
+.icon-favorite {
     &:before {
-        content: $icon-Right-Arrow;
-        color: $full-white;
+        content: '\e901';
+        color: $color-green-vogue;
     }
 }
-.icon-Logo {
+.icon-right-arrow {
     &:before {
-        content: $icon-Logo;
-        color: $satsuma;
+        content: '\e900';
+        color: $color-green-vogue;
     }
 }
-.icon-Bag {
+.icon-bag {
     &:before {
-        content: $icon-Bag;
-        color: $green-vogue;
+        content: '\e902';
+        color: $color-green-vogue;
     }
 }
-.icon-Star {
+.icon-star {
     &:before {
-        content: $icon-Star;
-        color: $satsuma;
+        content: '\e903';
+        color: $color-satsuma;
     }
 }
-.icon-Avatar {
+.icon-avatar {
     &:before {
-        content: $icon-Avatar;
-        color: $green-vogue;
+        content: '\e904';
+        color: $color-green-vogue;
     }
 }
-.icon-Search {
+.icon-search {
     &:before {
-        content: $icon-Search;
-        color: $full-white;
+        content: '\e905';
+        color: $color-full-white;
     }
 }
-.icon-Left-Arrow {
+.icon-left-arrow {
     &:before {
-        content: $icon-Left-Arrow;
-        color: $full-white;
+        content: '\e906';
+        color: $color-green-vogue;
     }
 }
-.icon-Email {
+.icon-email {
     &:before {
-        content: $icon-Email;
-        color: $green-vogue;
+        content: '\e907';
+        color: $color-green-vogue;
     }
 }

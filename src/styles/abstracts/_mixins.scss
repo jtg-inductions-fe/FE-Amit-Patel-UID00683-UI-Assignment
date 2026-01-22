@@ -1,38 +1,136 @@
 @use 'sass:math';
 @use 'variables' as *;
 
-@function calculateRem($size) {
+/* =========================================================
+   Function: pxToRem
+   ========================================================= */
+
+/**
+ * Converts a pixel value to rem units.
+ *
+ * @param {Number} $size
+ *   Pixel value to convert (can be unitless or px).
+ *
+ * @returns {Number}
+ *   Converted rem value based on a 16px root font size.
+ *
+ * @example
+ *   font-size: pxToRem(24); // 1.5rem
+ */
+@function pxToRem($size) {
     @if math.is-unitless($size) {
         $size: $size * 1px;
     } @else if unit($size) != 'px' {
-        @error "calculateRem() expects a px value, got #{unit($size)}";
+        @error "pxToRem() expects a px value, got #{unit($size)}";
     }
+
     @return math.div($size, 16px) * 1rem;
 }
 
-@mixin fontSize($size) {
-    font-size: $size;
-    font-size: calculateRem($size);
+/* =========================================================
+   Mixin: font-face
+   ========================================================= */
+
+/**
+ * Registers a font using @font-face.
+ *
+ * @param {String} $family
+ *   Font-family name to be used in CSS.
+ *
+ * @param {String} $file
+ *   Path to the font file.
+ *
+ * @param {Number} $weight
+ *   Font weight (e.g. 300, 400, 700).
+ *
+ * @param {String} $style
+ *   Font style (normal | italic).
+ *   Default: normal
+ *
+ * @example
+ *   @include font-face(
+ *     'Poppins',
+ *     '/assets/fonts/poppins/Poppins-Regular.ttf',
+ *     400
+ *   );
+ */
+@mixin font-face($family, $file, $weight, $style: normal) {
+    @font-face {
+        font-family: $family;
+        src: url($file) format('truetype');
+        font-weight: $weight;
+        font-style: $style;
+        font-display: swap;
+    }
 }
 
-@mixin text-style($size, $weight: 400, $family: sans-serif) {
+/* =========================================================
+   Mixin: text-style
+   ========================================================= */
+
+/**
+ * Applies font family, weight, and size.
+ *
+ * @param {Number} $size
+ *   Font size (px or rem).
+ *
+ * @param {Number} $weight
+ *   Font weight.
+ *   Default: 400
+ *
+ * @param {String} $family
+ *   Font family name.
+ *   Default: Poppins
+ *
+ * @example
+ *   @include text-style(pxToRem(16), 700);
+ */
+@mixin text-style($size, $weight: 400, $family: Poppins) {
     font-family: $family;
     font-weight: $weight;
     font-size: $size;
 }
 
+/* =========================================================
+   Responsive Mixins
+   ========================================================= */
+
+/**
+ * Desktop breakpoint styles.
+ *
+ * @example
+ *   @include respond-desktop {
+ *     padding: 2rem;
+ *   }
+ */
 @mixin respond-desktop {
     @media (max-width: $bp-large) {
         @content;
     }
 }
 
+/**
+ * Tablet breakpoint styles.
+ *
+ * @example
+ *   @include respond-tablet {
+ *     font-size: pxToRem(14);
+ *   }
+ */
 @mixin respond-tablet {
     @media (max-width: $bp-tablet) {
         @content;
     }
 }
 
+/**
+ * Phone breakpoint styles.
+ *
+ * @example
+ *   @include respond-phone {
+ *     display: none;
+ *   }
+ */
 @mixin respond-phone {
     @media (max-width: $bp-phone) {
         @content;
