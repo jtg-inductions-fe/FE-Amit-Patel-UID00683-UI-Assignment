@@ -65,33 +65,6 @@
 }
 
 /* =========================================================
-   Mixin: text-style
-   ========================================================= */
-
-/**
- * Applies font family, weight, and size.
- *
- * @param {Number} $size
- *   Font size (px or rem).
- *
- * @param {Number} $weight
- *   Font weight.
- *   Default: 400
- *
- * @param {String} $family
- *   Font family name.
- *   Default: Poppins
- *
- * @example
- *   @include text-style(pxToRem(16), 700);
- */
-@mixin text-style($size, $weight: 400, $family: Poppins) {
-    font-family: $family;
-    font-weight: $weight;
-    font-size: $size;
-}
-
-/* =========================================================
    Responsive Mixins
    ========================================================= */
 
@@ -104,7 +77,7 @@
  *   }
  */
 @mixin respond-desktop {
-    @media (max-width: $bp-large) {
+    @media (min-width: $bp-large) {
         @content;
     }
 }
@@ -118,21 +91,7 @@
  *   }
  */
 @mixin respond-tablet {
-    @media (max-width: $bp-tablet) {
-        @content;
-    }
-}
-
-/**
- * Phone breakpoint styles.
- *
- * @example
- *   @include respond-phone {
- *     display: none;
- *   }
- */
-@mixin respond-phone {
-    @media (max-width: $bp-phone) {
+    @media (min-width: $bp-tablet) {
         @content;
     }
 }

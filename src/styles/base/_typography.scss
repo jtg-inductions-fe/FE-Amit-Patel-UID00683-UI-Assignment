@@ -2,56 +2,109 @@
 @use '../abstracts/variables' as *;
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-size: pxToRem(16px);
     line-height: 1.5;
     color: $color-full-black;
 }
 
-.text {
-    font-family: 'Poppins', sans-serif;
+.heading {
+    font-family: 'Poppins';
+    font-weight: 700;
 
-    &--36 {
+    &--logo {
+        font-family: 'Josefin Sans';
+        font-size: pxToRem(30);
+
+        &--bold {
+            font-weight: 700;
+        }
+
+        &--medium {
+            font-weight: 400;
+        }
+    }
+
+    &--h1 {
         font-size: pxToRem(36);
     }
 
-    &--30 {
-        font-size: pxToRem(30);
+    &--h2 {
+        font-size: pxToRem(32);
     }
 
-    &--26 {
-        font-size: pxToRem(26);
+    &--h3 {
+        font-weight: 300;
+        font-size: pxToRem(32);
     }
 
-    &--24 {
+    &--h4 {
+        font-weight: 500;
         font-size: pxToRem(24);
     }
 
-    &--18 {
+    &--h5 {
+        font-weight: 400;
+        font-size: pxToRem(24);
+    }
+
+    &--h6 {
+        font-weight: 400;
+        font-size: pxToRem(14);
+    }
+}
+
+.subheading {
+    font-family: 'Poppins';
+    font-weight: 500;
+
+    &--v1 {
+        font-weight: 700;
         font-size: pxToRem(18);
     }
 
-    &--16 {
+    &--v2 {
+        font-size: pxToRem(16);
+    }
+}
+
+.text {
+    font-family: 'Poppins';
+    font-weight: 500;
+
+    &--paragraph {
+        font-weight: 400;
         font-size: pxToRem(16);
     }
 
-    &--bold {
+    &--title {
         font-weight: 700;
+        font-size: pxToRem(18);
     }
 
-    &--medium {
-        font-weight: 500;
+    &--subtitle {
+        font-size: pxToRem(16);
+    }
+}
+
+.label {
+    font-family: 'Poppins';
+    font-weight: 400;
+
+    &--nav {
+        font-size: pxToRem(16);
     }
 
-    &--regular {
-        font-weight: 400;
+    &--icon {
+        font-size: pxToRem(20);
     }
 
-    &--light {
-        font-weight: 300;
+    &--button {
+        font-weight: 700;
+        font-size: pxToRem(16);
     }
 
-    &--josefin {
-        font-family: 'Josefin Sans', sans-serif;
+    &--brand {
+        font-size: pxToRem(14);
     }
 }
