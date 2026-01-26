@@ -1,0 +1,89 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+:root {
+    --color-primary: #{$color-different-blue};
+    --color-secondary: #{$color-green-vogue};
+    --color-white: #{$color-full-white};
+    --color-text: #{$color-full-black};
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    height: pxToRem(215);
+    width: 100%;
+    color: var(--color-white);
+    background: linear-gradient(
+        to right,
+        var(--color-secondary),
+        rgb(from var(--color-secondary) r g b / 0.9)
+    );
+    text-align: center;
+    text-wrap: balance;
+
+    &__inner {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .search {
+            display: none;
+            height: 44px;
+            width: 380px;
+            display: flex;
+            justify-content: center;
+            margin-block: pxToRem(10);
+            border: 1px solid;
+            border-radius: 24px;
+
+            &__icon {
+                font-size: 20px;
+                background: none;
+                border: none;
+                color: var(--color-white);
+            }
+
+            &__box {
+                color: var(--color-white);
+                background: transparent;
+                outline: none;
+                border: none;
+            }
+
+            &__box::placeholder {
+                color: var(--color-white);
+            }
+        }
+    }
+}
+
+@include respond-tablet {
+    .hero {
+        height: 330px;
+        background: linear-gradient(
+            to right,
+            var(--color-secondary),
+            rgb(from var(--color-secondary) r g b / 0.95)
+        );
+
+        &__inner {
+            .search {
+                width: 476px;
+                margin-block: pxToRem(20);
+            }
+        }
+    }
+}
+
+@include respond-desktop {
+    .hero {
+        .search {
+            width: 586px;
+        }
+    }
+}
