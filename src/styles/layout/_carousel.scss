@@ -1,0 +1,241 @@
+@use 'sass:math';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+:root {
+    --color-primary: #{$color-different-blue};
+    --color-secondary: #{$color-green-vogue};
+    --color-white: #{$color-full-white};
+    --color-text: #{$color-full-black};
+    --color-background: #{$color-christmas-white};
+    --color-content: #{$color-satsuma};
+}
+
+.carousel-section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: var(--color-white);
+    padding-block: pxToRem(24);
+
+    &__inner {
+        width: 100%;
+        max-width: 100%;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: pxToRem(20);
+    }
+
+    &__title {
+        margin: 0;
+        text-align: center;
+    }
+
+    &__content {
+        padding: 40px;
+        background-color: var(--color-background);
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: pxToRem(24);
+    }
+}
+
+.carousel__container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+}
+
+.carousel__wrapper {
+    width: 100%;
+}
+
+.carousel__track {
+    display: flex;
+    align-items: center;
+}
+
+.carousel__slide {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+
+    img {
+        display: block;
+        width: pxToRem(140);
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+.carousel__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: pxToRem(40);
+    height: pxToRem(40);
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.carousel__nav--prev {
+    display: none;
+    left: pxToRem(4);
+}
+
+.carousel__nav--next {
+    display: none;
+    right: pxToRem(4);
+}
+
+.carousel__pagination {
+    display: flex;
+
+    .swiper-pagination-bullet {
+        width: pxToRem(8);
+        height: pxToRem(8);
+        border-radius: 50%;
+        background-color: $color-gunsmoke;
+        opacity: 0.7;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: var(--color-primary);
+    }
+}
+
+.recommendation-card {
+    height: 330px;
+    width: 386px;
+    max-width: 100%;
+    align-content: center;
+    margin-inline: auto;
+    box-sizing: border-box;
+
+    background-color: var(--color-white);
+    border-radius: pxToRem(8);
+    box-shadow: 0 pxToRem(6) pxToRem(12) rgba(0, 0, 0, 0.08);
+    padding: pxToRem(16);
+}
+
+.recommendation-card__body {
+    display: flex;
+    align-items: center;
+    gap: pxToRem(0);
+}
+
+.recommendation-card__content {
+    flex: 1;
+    min-width: 0;
+}
+
+.recommendation-card__eyebrow {
+    color: var(--color-content);
+}
+
+.recommendation-card__title {
+    color: var(--color-secondary);
+}
+
+.recommendation-card__meta {
+    display: flex;
+    gap: pxToRem(12);
+}
+
+.recommendation-card__media {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: pxToRem(24);
+}
+
+.recommendation-card__media img {
+    width: 150px;
+    aspect-ratio: 0.9;
+    object-fit: cover;
+}
+
+.recommendation-card__cta {
+    width: 150px;
+    border: none;
+    padding: pxToRem(10) pxToRem(16);
+    background-color: var(--color-content);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.icon {
+    color: var(--color-secondary);
+    background: transparent;
+    border: none;
+    height: 48px;
+    font-size: pxToRem(20);
+}
+
+@include respond-tablet {
+    .carousel__wrapper {
+        width: 75%;
+        margin-inline: auto;
+    }
+
+    .carousel__nav--prev {
+        display: block;
+    }
+
+    .carousel__nav--next {
+        display: block;
+        right: 40px;
+    }
+
+    .carousel__slide img {
+        width: pxToRem(160);
+    }
+}
+
+@include respond-desktop {
+    .carousel-section {
+        &___content {
+            gap: pxToRem(1);
+        }
+    }
+
+    .carousel__container {
+        position: relative;
+        max-width: 60%;
+    }
+
+    .carousel__wrapper {
+        width: 80%;
+    }
+
+    .carousel-section {
+        &__content {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    .carousel__container {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .recommendation-card {
+        width: pxToRem(500);
+        max-width: pxToRem(500);
+        flex-shrink: 0;
+    }
+}

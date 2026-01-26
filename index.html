@@ -206,6 +206,182 @@
                     </div>
                 </div>
             </section>
+
+            <!-- caraousel -->
+            <section
+                class="carousel-section"
+                aria-labelledby="carousel-heading"
+            >
+                <div class="carousel-section__inner">
+                    <h2
+                        id="carousel-heading"
+                        class="carousel-section__title heading heading--h2"
+                    >
+                        Últimos lançamentos
+                    </h2>
+
+                    <!-- pagination dots (visual, controlled by Swiper) -->
+                    <div class="carousel-section__dots" aria-hidden="true">
+                        <div class="carousel__pagination"></div>
+                    </div>
+
+                    <div class="carousel-section__content">
+                        <!-- carousel wrapper (Swiper container) -->
+                        <div class="carousel__container">
+                            <div
+                                class="carousel__wrapper swiper"
+                                aria-label="Lista de livros em destaque"
+                            >
+                                <ul
+                                    class="carousel__track swiper-wrapper"
+                                    role="list"
+                                >
+                                    <li
+                                        class="carousel__slide swiper-slide"
+                                        role="group"
+                                        aria-roledescription="slide"
+                                        aria-label="Slide 1 of 5"
+                                    >
+                                        <img
+                                            src="assets/images/card_Javascript.webp"
+                                            alt="Livro Angular: boas práticas e arquitetura"
+                                            loading="lazy"
+                                        />
+                                    </li>
+
+                                    <li
+                                        class="carousel__slide swiper-slide"
+                                        role="group"
+                                        aria-roledescription="slide"
+                                        aria-label="Slide 2 of 5"
+                                    >
+                                        <img
+                                            src="assets/images/card_Liderança.webp"
+                                            alt="Livro Apache Kafka com Spring Boot"
+                                            loading="lazy"
+                                        />
+                                    </li>
+
+                                    <li
+                                        class="carousel__slide swiper-slide"
+                                        role="group"
+                                        aria-roledescription="slide"
+                                        aria-label="Slide 3 of 5"
+                                    >
+                                        <img
+                                            src="assets/images/card_ApacheKafka.webp"
+                                            alt="Livro Arquitetura de Software moderna"
+                                            loading="lazy"
+                                        />
+                                    </li>
+
+                                    <li
+                                        class="carousel__slide swiper-slide"
+                                        role="group"
+                                        aria-roledescription="slide"
+                                        aria-label="Slide 4 of 5"
+                                    >
+                                        <img
+                                            src="/assets/images/card_Angular.webp"
+                                            alt="Livro Angular avançado"
+                                            loading="lazy"
+                                        />
+                                    </li>
+
+                                    <li
+                                        class="carousel__slide swiper-slide"
+                                        role="group"
+                                        aria-roledescription="slide"
+                                        aria-label="Slide 3 of 5"
+                                    >
+                                        <img
+                                            src="assets/images/card_ApacheKafka.webp"
+                                            alt="Livro Arquitetura de Software moderna"
+                                            loading="lazy"
+                                        />
+                                    </li>
+                                </ul>
+
+                                <!-- arrows (external controls) -->
+                                <button
+                                    class="carousel__nav carousel__nav--prev"
+                                    type="button"
+                                    aria-label="Mostrar item anterior"
+                                >
+                                    <span
+                                        class="icon icon-left-arrow"
+                                        aria-hidden="true"
+                                    ></span>
+                                </button>
+
+                                <button
+                                    class="carousel__nav carousel__nav--next"
+                                    type="button"
+                                    aria-label="Mostrar próximo item"
+                                >
+                                    <span
+                                        class="icon icon-right-arrow"
+                                        aria-hidden="true"
+                                    ></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- recommendation card (sibling of carousel) -->
+                        <aside
+                            class="recommendation-card"
+                            aria-labelledby="recommendation-title"
+                            role="complementary"
+                        >
+                            <div class="recommendation-card__body">
+                                <div class="recommendation-card__content">
+                                    <p
+                                        class="label--button recommendation-card__eyebrow"
+                                    >
+                                        Talvez você também se interesse por...
+                                    </p>
+                                    <h3
+                                        id="recommendation-title"
+                                        class="text--title recommendation-card__title"
+                                    >
+                                        Angular 11 e Firebase
+                                    </h3>
+                                    <p
+                                        class="text--paragraph recommendation-card__desc"
+                                    >
+                                        Construindo uma aplicação integrada com
+                                        a plataforma do Google.
+                                    </p>
+
+                                    <div class="recommendation-card__meta">
+                                        <button
+                                            class="icon icon-favorite"
+                                            aria-label="Favoritar"
+                                        ></button>
+                                        <button
+                                            class="icon icon-bag"
+                                            aria-label="Adicionar à sacola"
+                                        ></button>
+                                    </div>
+                                </div>
+
+                                <div class="recommendation-card__media">
+                                    <img
+                                        src="/assets/images/alpha.webp"
+                                        alt=""
+                                        aria-hidden="true"
+                                    />
+                                    <button
+                                        class="button recommendation-card__cta"
+                                    >
+                                        Saiba mais
+                                    </button>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <script type="module" src="./src/script/index.js"></script>
