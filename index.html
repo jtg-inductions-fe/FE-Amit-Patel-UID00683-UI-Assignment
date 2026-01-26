@@ -13,24 +13,24 @@
                     <div class="header__brand">
                         <button
                             class="header__toggle icon icon-menu"
-                            aria-label="Menu"
+                            aria-label="Open Menu"
                             type="button"
                             aria-pressed="false"
+                            aria-controls="mobile-drawer"
                         ></button>
 
                         <a class="logo" href="/">
                             <img
                                 class="logo__mark"
-                                src="/public/assets/images/Logo.svg"
+                                src="/assets/images/Logo.svg"
                                 alt="Alura Books Logo"
                             />
                             <span class="logo__text">
-                                <span
-                                    class="logo__alura text--josefin text--24 text--bold"
+                                <span class="logo__alura heading__logo"
                                     >Alura</span
                                 >
                                 <span
-                                    class="logo__books text--josefin text--26 text--regular"
+                                    class="logo__books heading__logo heading__logo--medium"
                                     >Books</span
                                 >
                             </span>
@@ -39,7 +39,7 @@
 
                     <!-- NAV-->
                     <nav class="nav" aria-label="Primary">
-                        <ul class="text--14 text--regular nav__list">
+                        <ul class="label label--nav nav__list">
                             <li class="nav__item nav__item--has-dropdown">
                                 <a
                                     class="nav__link"
@@ -53,7 +53,7 @@
 
                                 <div
                                     id="nav-dropdown"
-                                    class="nav__dropdown"
+                                    class="label label--nav nav__dropdown"
                                     aria-hidden="true"
                                 >
                                     <ul class="dropdown__list">
@@ -109,12 +109,22 @@
             </div>
 
             <!-- DRAWER -->
-            <aside class="drawer" aria-hidden="true">
+            <aside
+                id="mobile-drawer"
+                class="drawer"
+                role="dialog"
+                aria-modal="true"
+                aria-hidden="true"
+                aria-labelledby="drawer-title"
+            >
                 <div class="drawer__content">
-                    <h4 class="text--bold text--12 drawer__title">
+                    <h4
+                        id="drawer-title"
+                        class="label label--button drawer__title"
+                    >
                         Categorias
                     </h4>
-                    <ul class="text--12 drawer__list">
+                    <ul class="label--nav label drawer__list">
                         <li>PROGRAMAÇÃO</li>
                         <li>FRONT-END</li>
                         <li>INFRAESTRUTURA</li>

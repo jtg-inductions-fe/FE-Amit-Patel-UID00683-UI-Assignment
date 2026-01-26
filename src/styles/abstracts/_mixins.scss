@@ -20,9 +20,7 @@
 @function pxToRem($size) {
     @if math.is-unitless($size) {
         $size: $size * 1px;
-    }
-
-    @else if unit($size) !='px' {
+    } @else if unit($size) != 'px' {
         @error "pxToRem() expects a px value, got #{unit($size)}";
     }
 

@@ -230,8 +230,14 @@ $transition-fast: 180ms ease;
         width: $drawer-width;
         background: var(--color-white);
         padding-bottom: pxToRem(14);
-        transform: translateX(-110%);
-        transition: transform $transition-fast;
+        transform-origin: top left;
+        transform: scaleY(0.95);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 180ms ease,
+            transform 180ms ease,
+            visibility 180ms ease;
         z-index: 120;
         box-shadow: pxToRem(6) 0 pxToRem(20) rgba(0, 0, 0, 0.22);
 
@@ -265,9 +271,10 @@ $transition-fast: 180ms ease;
                 color: var(--color-white);
             }
         }
-
         &.is-open {
-            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+            transform: scaleY(1);
         }
     }
 }
