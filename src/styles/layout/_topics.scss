@@ -1,0 +1,79 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+:root {
+    --color-secondary: #{$color-green-vogue};
+}
+
+.topics-section {
+    width: 100%;
+    padding-block: 28px;
+    overflow-x: hidden;
+    background: linear-gradient(
+        to right,
+        var(--color-secondary),
+        rgb(from var(--color-secondary) r g b / 0.9)
+    );
+    min-height: 295px;
+    display: flex;
+    align-items: center;
+
+    &__inner {
+        width: 100%;
+        max-width: 743px;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: pxToRem(32);
+    }
+
+    &__title {
+        color: var(--color-white);
+        text-align: center;
+    }
+}
+
+.topics-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: pxToRem(12);
+    max-width: 100%;
+}
+
+.topic-pill {
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    width: fit-content;
+    height: pxToRem(56);
+    padding: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $color-satsuma;
+    color: var(--color-white);
+    white-space: nowrap;
+
+    box-shadow: 0 pxToRem(6) pxToRem(16) rgba(0, 0, 0, 0.2);
+}
+
+@include respond-tablet {
+    .topic-pill {
+        height: pxToRem(64);
+        padding: 24px;
+    }
+}
+
+@include respond-desktop {
+    .topics-section {
+        min-height: 418px;
+    }
+}
