@@ -2,9 +2,9 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-$nav-height: 80px;
+$nav-height: pxToRem(80);
 $dropdown-width: pxToRem(180);
-$drawer-width: pxToRem(240);
+$drawer-width: pxToRem(300);
 $transition-fast: 180ms ease;
 
 :root {
@@ -17,24 +17,20 @@ $transition-fast: 180ms ease;
 /* base header */
 .header {
     color: var(--color-text);
-    // position: relative;
     width: 100%;
     background: var(--color-white);
-    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.09);
+    box-shadow: 0 pxToRem(3px) 0 rgba(0, 0, 0, 0.09);
     white-space: nowrap;
-    z-index: 130s;
+    z-index: 130;
 
     &__inner {
         height: $nav-height;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: pxToRem(12);
+        gap: pxToRem(15);
         align-items: center;
-        // max-width: 1450px;
-        // max-width: inherit - 160px;
-        // margin: 0 auto;
-        padding-inline-end: pxToRem(18); //here
+        padding-inline-end: pxToRem(23);
     }
 
     .header__left {
@@ -67,7 +63,7 @@ $transition-fast: 180ms ease;
         background-color: var(--color-white);
         align-items: center;
         justify-content: center;
-        font-size: pxToRem(24);
+        font-size: pxToRem(30);
         line-height: 1;
         z-index: 140;
         transition:
@@ -104,7 +100,7 @@ $transition-fast: 180ms ease;
         height: inherit;
         display: inline-flex;
         align-items: center;
-        gap: pxToRem(12);
+        gap: pxToRem(15);
         z-index: 60;
     }
 
@@ -112,13 +108,13 @@ $transition-fast: 180ms ease;
     .logo {
         display: inline-flex;
         align-items: center;
-        gap: pxToRem(10);
+        gap: pxToRem(13);
         text-decoration: none;
         color: var(--color-text);
 
         &__mark {
-            width: pxToRem(36);
-            height: pxToRem(36);
+            width: pxToRem(45);
+            height: pxToRem(45);
             display: inline-block;
             svg {
                 width: 100%;
@@ -141,15 +137,14 @@ $transition-fast: 180ms ease;
 
     &__icons {
         display: inline-flex;
-        gap: pxToRem(7);
+        gap: pxToRem(9);
         align-items: center;
 
         .icon {
             color: var(--color-secondary);
             background: transparent;
             border: none;
-            height: 48px;
-            font-size: pxToRem(30);
+            font-size: pxToRem(38);
         }
 
         .icon__label {
@@ -176,7 +171,7 @@ $transition-fast: 180ms ease;
         .nav__link {
             background: transparent;
             border: 0;
-            padding: pxToRem(10) pxToRem(6);
+            padding: pxToRem(13) pxToRem(8);
             text-transform: uppercase;
             cursor: pointer;
             color: var(--color-text);
@@ -185,17 +180,15 @@ $transition-fast: 180ms ease;
         /* dropdown */
         .nav__dropdown {
             position: absolute;
-            top: calc(100% + pxToRem(6));
+            top: 100%;
             left: 0;
             width: $dropdown-width;
             background: var(--color-white);
-            box-shadow: 0 pxToRem(6) pxToRem(18) rgba(0, 0, 0, 0.2);
-            border-radius: pxToRem(2);
+            box-shadow: 0 pxToRem(7.5) pxToRem(22.5) rgba(0, 0, 0, 0.2);
             overflow: hidden;
             transform-origin: top left;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(pxToRem(-6));
             transition:
                 opacity $transition-fast,
                 transform $transition-fast,
@@ -208,8 +201,7 @@ $transition-fast: 180ms ease;
             }
 
             .dropdown__item {
-                padding: pxToRem(18) pxToRem(18);
-                font-size: pxToRem(16);
+                padding: pxToRem(22.5) pxToRem(22.5);
                 color: var(--color-different-blue, #{var(--color-primary)});
                 cursor: pointer;
             }
@@ -229,7 +221,7 @@ $transition-fast: 180ms ease;
         top: $nav-height;
         width: $drawer-width;
         background: var(--color-white);
-        padding-bottom: pxToRem(14);
+        padding-bottom: pxToRem(18);
         transform-origin: top left;
         transform: scaleY(0.95);
         opacity: 0;
@@ -239,14 +231,10 @@ $transition-fast: 180ms ease;
             transform 180ms ease,
             visibility 180ms ease;
         z-index: 120;
-        box-shadow: pxToRem(6) 0 pxToRem(20) rgba(0, 0, 0, 0.22);
-
-        height: auto;
-        max-height: calc(100vh - #{$nav-height} - pxToRem(16));
-        overflow-y: auto;
+        box-shadow: pxToRem(8) 0 pxToRem(25) rgba(0, 0, 0, 0.22);
 
         &__title {
-            margin: pxToRem(20) pxToRem(20) pxToRem(10);
+            margin: pxToRem(25) pxToRem(25) pxToRem(13);
             color: var(--color-secondary);
         }
 
@@ -255,7 +243,7 @@ $transition-fast: 180ms ease;
             padding: 0;
             margin: 0;
             li {
-                padding: pxToRem(14) pxToRem(20);
+                padding: pxToRem(18) pxToRem(25);
                 cursor: pointer;
                 transition:
                     background-color $transition-fast,
@@ -284,21 +272,21 @@ $transition-fast: 180ms ease;
         background: var(--color-white);
 
         &__inner {
-            padding-inline: 80px;
+            padding-inline: pxToRem(80px);
         }
 
         .logo {
             align-items: end;
 
-            width: 264px;
+            width: pxToRem(264px);
             &__text {
-                max-width: 16px;
+                max-width: pxToRem(16px);
                 display: inline-flex;
                 align-items: center;
             }
             &__mark {
-                width: 40px;
-                height: 40px;
+                width: pxToRem(40px);
+                height: pxToRem(40px);
             }
         }
 
@@ -310,12 +298,12 @@ $transition-fast: 180ms ease;
             display: block;
 
             .nav__list {
-                gap: 24px;
+                gap: pxToRem(24px);
                 justify-content: space-between;
             }
 
             .nav__item {
-                padding: pxToRem(1);
+                padding: pxToRem(1.25);
                 display: flex;
             }
 
@@ -353,9 +341,8 @@ $transition-fast: 180ms ease;
         }
 
         &__icons {
-            gap: pxToRem(38);
-            // gap: pxToRem(19); //here
-            width: 135px;
+            gap: pxToRem(48);
+            width: pxToRem(135px);
             justify-content: space-between;
         }
 
@@ -368,8 +355,8 @@ $transition-fast: 180ms ease;
 @include respond-desktop {
     .header {
         .logo &__mark {
-            width: pxToRem(44);
-            height: pxToRem(44);
+            width: pxToRem(55);
+            height: pxToRem(55);
         }
 
         .icon__label {
@@ -378,12 +365,10 @@ $transition-fast: 180ms ease;
 
         &__icons {
             gap: pxToRem(0);
-            width: pxToRem(304);
-            // width: 380px;
+            width: pxToRem(380);
 
             .icon__label {
-                margin-inline-end: pxToRem(48);
-                // margin-inline-end: 60px;
+                margin-inline-end: pxToRem(60);
             }
         }
     }
