@@ -42,12 +42,7 @@ document.addEventListener('click', (e) => {
             drawer.setAttribute('aria-hidden', String(!isOpen));
 
             if (isOpen) {
-                drawer
-                    .querySelector(
-                        'a, button, input, [tabindex]:not([tabindex="-1"])',
-                    )
-                    ?.focus();
-
+                drawer.querySelector(FOCUSABLE_SELECTOR)?.focus();
                 drawer.addEventListener('keydown', drawerFocusTrap);
             } else {
                 drawer.removeEventListener('keydown', drawerFocusTrap);
@@ -84,11 +79,13 @@ document.addEventListener('click', (e) => {
             document.querySelectorAll('.nav__item.is-open').forEach((item) => {
                 item.classList.remove('is-open');
                 const t = item.querySelector('[aria-controls]');
-                t?.setAttribute('aria-expanded', 'false');
-                const id = t?.getAttribute('aria-controls');
-                document
-                    .getElementById(id)
-                    ?.setAttribute('aria-hidden', 'true');
+                if (t) {
+                    t.setAttribute('aria-expanded', 'false');
+                    const panel = document.getElementById(
+                        t.getAttribute('aria-controls'),
+                    );
+                    panel?.setAttribute('aria-hidden', 'true');
+                }
             });
         }
         return;
@@ -126,5 +123,17 @@ document.addEventListener('keydown', (e) => {
 
             document.querySelector('.header__toggle')?.focus();
         }
+
+        document.querySelectorAll('.nav__item.is-open').forEach((item) => {
+            item.classList.remove('is-open');
+            const trigger = item.querySelector('[aria-controls]');
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', 'false');
+                const panel = document.getElementById(
+                    trigger.getAttribute('aria-controls'),
+                );
+                panel?.setAttribute('aria-hidden', 'true');
+            }
+        });
     }
 });

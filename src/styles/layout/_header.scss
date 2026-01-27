@@ -19,7 +19,7 @@ $transition-fast: 180ms ease;
     color: var(--color-text);
     width: 100%;
     background: var(--color-white);
-    box-shadow: 0 pxToRem(3px) 0 rgba(0, 0, 0, 0.09);
+    box-shadow: 0 pxToRem(3) 0 rgba(0, 0, 0, 0.09);
     white-space: nowrap;
     z-index: 130;
 
@@ -29,7 +29,6 @@ $transition-fast: 180ms ease;
         justify-content: space-between;
         align-items: center;
         gap: pxToRem(15);
-        align-items: center;
         padding-inline-end: pxToRem(23);
     }
 
@@ -187,7 +186,7 @@ $transition-fast: 180ms ease;
 
             .dropdown__item {
                 padding: pxToRem(22.5) pxToRem(22.5);
-                color: var(--color-different-blue, #{var(--color-primary)});
+                color: var(--color-primary);
                 cursor: pointer;
             }
         }
@@ -212,9 +211,9 @@ $transition-fast: 180ms ease;
         opacity: 0;
         visibility: hidden;
         transition:
-            opacity 180ms ease,
-            transform 180ms ease,
-            visibility 180ms ease;
+            opacity $transition-fast,
+            transform $transition-fast,
+            visibility $transition-fast;
         z-index: 120;
         box-shadow: pxToRem(8) 0 pxToRem(25) rgba(0, 0, 0, 0.22);
 
@@ -262,21 +261,21 @@ $transition-fast: 180ms ease;
         background: var(--color-white);
 
         &__inner {
-            padding-inline: pxToRem(80px);
+            padding-inline: pxToRem(80);
         }
 
         .logo {
             align-items: end;
 
-            width: pxToRem(264px);
+            width: pxToRem(264);
             &__text {
-                max-width: pxToRem(16px);
+                max-width: pxToRem(16);
                 display: inline-flex;
                 align-items: center;
             }
             &__mark {
-                width: pxToRem(40px);
-                height: pxToRem(40px);
+                width: pxToRem(40);
+                height: pxToRem(40);
             }
         }
 
@@ -288,7 +287,7 @@ $transition-fast: 180ms ease;
             display: block;
 
             .nav__list {
-                gap: pxToRem(24px);
+                gap: pxToRem(24);
                 justify-content: space-between;
             }
 
@@ -332,7 +331,7 @@ $transition-fast: 180ms ease;
 
         &__icons {
             gap: pxToRem(48);
-            width: pxToRem(135px);
+            width: pxToRem(135);
             justify-content: space-between;
         }
 
