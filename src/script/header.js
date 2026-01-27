@@ -1,6 +1,38 @@
+const FOCUSABLE_SELECTOR =
+    'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])';
+
+function drawerFocusTrap(e) {
+    if (e.key !== 'Tab') return;
+
+    const drawer = document.getElementById('mobile-drawer');
+    if (!drawer || drawer.getAttribute('aria-hidden') === 'true') return;
+
+    const focusables = Array.from(
+        drawer.querySelectorAll(FOCUSABLE_SELECTOR),
+    ).filter((el) => !el.disabled);
+
+    if (!focusables.length) {
+        e.preventDefault();
+        return;
+    }
+
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+    }
+
+    if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+    }
+}
+
 document.addEventListener('click', (e) => {
     const drawer = document.querySelector('.drawer');
-    const toggleBtn = e.target.closest('.header__toggle, .icon-menu');
+    const toggleBtn = e.target.closest('.header__toggle');
     const insideDrawer = e.target.closest('.drawer');
     const insideNav = e.target.closest('.nav');
 
@@ -15,6 +47,10 @@ document.addEventListener('click', (e) => {
                         'a, button, input, [tabindex]:not([tabindex="-1"])',
                     )
                     ?.focus();
+
+                drawer.addEventListener('keydown', drawerFocusTrap);
+            } else {
+                drawer.removeEventListener('keydown', drawerFocusTrap);
             }
         }
 
@@ -31,6 +67,7 @@ document.addEventListener('click', (e) => {
         drawer.classList.remove('is-open');
         drawer.setAttribute('aria-hidden', 'true');
 
+        drawer.removeEventListener('keydown', drawerFocusTrap);
         document
             .querySelectorAll('.header__toggle, .icon-favorite')
             .forEach((btn) => {
@@ -79,8 +116,9 @@ document.addEventListener('keydown', (e) => {
             drawer.classList.remove('is-open');
             drawer.setAttribute('aria-hidden', 'true');
 
+            drawer.removeEventListener('keydown', drawerFocusTrap);
             document
-                .querySelectorAll('.header__toggle, .icon-menu')
+                .querySelectorAll('.header__toggle, .icon-favorite')
                 .forEach((btn) => {
                     btn.classList.remove('is-active');
                     btn.setAttribute('aria-pressed', 'false');

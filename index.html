@@ -11,6 +11,7 @@
             <div class="header__inner">
                 <div class="header__left">
                     <div class="header__brand">
+                        <!-- header__toggle -->
                         <button
                             class="header__toggle icon icon-menu"
                             aria-label="Open Menu"
@@ -19,6 +20,7 @@
                             aria-controls="mobile-drawer"
                         ></button>
 
+                        <!-- logo -->
                         <a class="logo" href="/">
                             <img
                                 class="logo__mark"
@@ -41,7 +43,7 @@
                     <nav class="nav" aria-label="Primary">
                         <ul class="label label--nav nav__list">
                             <li class="nav__item nav__item--has-dropdown">
-                                <a
+                                <button
                                     class="nav__link"
                                     href="#"
                                     role="button"
@@ -49,7 +51,7 @@
                                     aria-controls="nav-dropdown"
                                 >
                                     CATEGORIAS
-                                </a>
+                                </button>
 
                                 <div
                                     id="nav-dropdown"
@@ -58,17 +60,19 @@
                                 >
                                     <ul class="dropdown__list">
                                         <li class="dropdown__item">
-                                            PROGRAMAÇÃO
+                                            <a href="#">PROGRAMAÇÃO</a>
                                         </li>
                                         <li class="dropdown__item">
-                                            FRONT-END
+                                            <a href="#">FRONT-END</a>
                                         </li>
                                         <li class="dropdown__item">
-                                            INFRAESTRUTURA
+                                            <a href="#">INFRAESTRUTURA</a>
                                         </li>
-                                        <li class="dropdown__item">BUSINESS</li>
                                         <li class="dropdown__item">
-                                            DESIGN &amp; UX
+                                            <a href="#">BUSINESS</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="#">DESIGN &amp; UX</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -94,17 +98,19 @@
 
                     <button
                         class="icon icon-bag"
-                        aria-label="Minha sacola"
+                        aria-labelledby="bag-label"
                         type="button"
                     ></button>
-                    <span class="icon__label">Minha sacola</span>
+                    <span id="bag-label" class="icon__label">Minha sacola</span>
 
                     <button
                         class="icon icon-avatar"
-                        aria-label="Meu perfil"
+                        aria-labelledby="avatar-label"
                         type="button"
                     ></button>
-                    <span class="icon__label">Meu perfil</span>
+                    <span id="avatar-label" class="icon__label"
+                        >Meu perfil</span
+                    >
                 </div>
             </div>
 
@@ -125,11 +131,11 @@
                         Categorias
                     </h4>
                     <ul class="label--nav label drawer__list">
-                        <li>PROGRAMAÇÃO</li>
-                        <li>FRONT-END</li>
-                        <li>INFRAESTRUTURA</li>
-                        <li>BUSINESS</li>
-                        <li>DESIGN & UX</li>
+                        <li><a href="#">PROGRAMAÇÃO</a></li>
+                        <li><a href="#">FRONT-END</a></li>
+                        <li><a href="#">INFRAESTRUTURA</a></li>
+                        <li><a href="#">BUSINESS</a></li>
+                        <li><a href="#">DESIGN &amp; UX</a></li>
                     </ul>
                 </div>
             </aside>

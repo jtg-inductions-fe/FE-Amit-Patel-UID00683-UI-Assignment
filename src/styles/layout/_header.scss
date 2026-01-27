@@ -33,24 +33,9 @@ $transition-fast: 180ms ease;
         padding-inline-end: pxToRem(23);
     }
 
-    .header__left {
+    &__left {
         display: inline-flex;
         align-items: center;
-    }
-
-    .header {
-        .nav {
-            display: block;
-
-            .nav__list {
-                display: flex;
-                justify-content: space-between;
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                align-items: center;
-            }
-        }
     }
 
     /* hamburger (mobile) */
@@ -265,6 +250,11 @@ $transition-fast: 180ms ease;
             transform: scaleY(1);
         }
     }
+
+    a {
+        text-decoration: none;
+        color: var(--color-secondary);
+    }
 }
 
 @include respond-tablet {
@@ -354,11 +344,6 @@ $transition-fast: 180ms ease;
 
 @include respond-desktop {
     .header {
-        .logo &__mark {
-            width: pxToRem(55);
-            height: pxToRem(55);
-        }
-
         .icon__label {
             display: block;
         }
