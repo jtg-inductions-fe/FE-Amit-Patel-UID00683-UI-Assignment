@@ -1,0 +1,90 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+:root {
+    --color-secondary: #{$color-green-vogue};
+    --color-white: #{$color-full-white};
+    --color-text: #{$color-full-black};
+}
+
+.newsletter {
+    width: 100%;
+    background-color: var(--color-white);
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+
+    &__inner {
+        max-width: pxToRem(725);
+        margin-inline: auto;
+        padding: pxToRem(24) pxToRem(24);
+        display: flex;
+        flex-direction: column;
+        gap: pxToRem(16);
+    }
+}
+
+.newsletter__content {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(12);
+    color: var(--color-secondary);
+}
+
+input::placeholder {
+    color: $color-green-vogue;
+}
+
+.newsletter__input-wrapper {
+    width: 100%;
+    height: pxToRem(44);
+    display: flex;
+    padding-inline: pxToRem(28);
+    gap: pxToRem(12);
+
+    border-radius: pxToRem(24);
+    background-color: var(--color-white);
+
+    border: 1px solid var(--color-secondary);
+    box-sizing: border-box;
+}
+
+.newsletter__icon {
+    height: 60%;
+    align-self: center;
+    color: var(--color-secondary);
+    font-size: pxToRem(24);
+}
+
+.newsletter__input {
+    flex: 1;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--color-text);
+    min-width: 0;
+}
+
+@include respond-tablet {
+    .newsletter__inner {
+        padding-block: pxToRem(40);
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: pxToRem(90);
+        padding-inline: pxToRem(40);
+    }
+
+    .newsletter__content {
+        gap: pxToRem(20);
+    }
+}
+
+@include respond-desktop {
+    .newsletter__inner {
+        max-width: pxToRem(775);
+        width: pxToRem(775);
+        padding-block: pxToRem(80);
+        gap: pxToRem(10);
+    }
+}
