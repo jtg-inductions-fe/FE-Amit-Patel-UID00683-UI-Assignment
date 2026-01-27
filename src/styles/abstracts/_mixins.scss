@@ -12,10 +12,10 @@
  *   Pixel value to convert (can be unitless or px).
  *
  * @returns {Number}
- *   Converted rem value based on a 16px root font size.
+ *   Converted rem value based on a 20px root font size.
  *
  * @example
- *   font-size: pxToRem(24); // 1.5rem
+ *   font-size: pxToRem(24); // 1.2rem
  */
 @function pxToRem($size) {
     @if math.is-unitless($size) {
