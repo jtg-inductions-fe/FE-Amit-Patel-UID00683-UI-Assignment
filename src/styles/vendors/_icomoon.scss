@@ -1,0 +1,82 @@
+@use '../abstracts/variables' as *;
+
+@font-face {
+    font-family: '#{$icomoon-font-family}';
+    src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?ubp60c');
+    src:
+        url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?ubp60c#iefix')
+            format('embedded-opentype'),
+        url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?ubp60c')
+            format('truetype'),
+        url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?ubp60c')
+            format('woff'),
+        url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?ubp60c##{$icomoon-font-family}')
+            format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: '#{$icomoon-font-family}' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-favorite {
+    &:before {
+        content: '\e901';
+        color: $color-green-vogue;
+    }
+}
+.icon-right-arrow {
+    &:before {
+        content: '\e900';
+        color: $color-green-vogue;
+    }
+}
+.icon-bag {
+    &:before {
+        content: '\e902';
+        color: $color-green-vogue;
+    }
+}
+.icon-star {
+    &:before {
+        content: '\e903';
+        color: $color-satsuma;
+    }
+}
+.icon-avatar {
+    &:before {
+        content: '\e904';
+        color: $color-green-vogue;
+    }
+}
+.icon-search {
+    &:before {
+        content: '\e905';
+        color: $color-full-white;
+    }
+}
+.icon-left-arrow {
+    &:before {
+        content: '\e906';
+        color: $color-green-vogue;
+    }
+}
+.icon-email {
+    &:before {
+        content: '\e907';
+        color: $color-green-vogue;
+    }
+}

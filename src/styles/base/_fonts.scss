@@ -1,0 +1,21 @@
+@use '../abstracts/mixins' as *;
+
+@include font-face('Poppins', '/assets/fonts/poppins/Poppins-Light.ttf', 300);
+
+@include font-face('Poppins', '/assets/fonts/poppins/Poppins-Regular.ttf', 400);
+
+@include font-face('Poppins', '/assets/fonts/poppins/Poppins-Medium.ttf', 500);
+
+@include font-face('Poppins', '/assets/fonts/poppins/Poppins-Bold.ttf', 700);
+
+@include font-face(
+    'Josefin Sans',
+    '/assets/fonts/josefin-sans/JosefinSans-Regular.ttf',
+    400
+);
+
+@include font-face(
+    'Josefin Sans',
+    '/assets/fonts/josefin-sans/JosefinSans-Bold.ttf',
+    700
+);

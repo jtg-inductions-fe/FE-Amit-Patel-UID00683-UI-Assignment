@@ -1,0 +1,114 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+body {
+    font-family: 'Poppins';
+    font-size: pxToRem(16);
+    line-height: 1.5;
+    color: $color-full-black;
+}
+
+.heading {
+    font-family: 'Poppins';
+
+    &__logo {
+        font-family: 'Josefin Sans';
+        font-size: pxToRem(30);
+        font-weight: 700;
+
+        &--medium {
+            font-weight: 400;
+        }
+    }
+
+    &--h1 {
+        font-weight: 700;
+        font-size: pxToRem(18);
+        @include respond-tablet {
+            font-size: pxToRem(36);
+        }
+    }
+
+    &--h2 {
+        font-weight: 700;
+        font-size: pxToRem(32);
+    }
+
+    &--h3 {
+        font-weight: 300;
+        font-size: pxToRem(32);
+    }
+
+    &--h4 {
+        font-weight: 500;
+        font-size: pxToRem(24);
+    }
+
+    &--h5 {
+        font-weight: 400;
+        font-size: pxToRem(24);
+    }
+
+    &--h6 {
+        font-weight: 400;
+        font-size: pxToRem(14);
+    }
+}
+
+.subheading {
+    font-family: 'Poppins';
+
+    &--v1 {
+        font-weight: 700;
+        font-size: pxToRem(18);
+    }
+
+    &--v2 {
+        font-weight: 500;
+        font-size: pxToRem(16);
+    }
+}
+
+.text {
+    font-family: 'Poppins';
+
+    &--paragraph {
+        font-weight: 400;
+        font-size: pxToRem(14);
+        @include respond-tablet {
+            font-size: pxToRem(16);
+        }
+    }
+
+    &--title {
+        font-weight: 700;
+        font-size: pxToRem(18);
+    }
+
+    &--subtitle {
+        font-weight: 500;
+        font-size: pxToRem(16);
+    }
+}
+
+.label {
+    font-family: 'Poppins';
+    font-weight: 400;
+
+    &--nav {
+        font-size: pxToRem(16);
+    }
+
+    &--icon {
+        font-size: pxToRem(20);
+    }
+
+    &--button {
+        font-weight: 700;
+        font-size: pxToRem(16);
+    }
+
+    &--brand {
+        font-size: pxToRem(14);
+    }
+}

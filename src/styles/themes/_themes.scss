@@ -1,0 +1,6 @@
+@use '../abstracts/variables' as *;
+:root {
+    --color-primary: $color-different-blue;
+    --color-secondary: $color-green-vogue;
+    --color-tertiary: $color-christmas-white;
+}

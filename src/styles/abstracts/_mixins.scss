@@ -1,0 +1,97 @@
+@use 'sass:math';
+@use './variables' as *;
+
+/* =========================================================
+   Function: pxToRem
+   ========================================================= */
+
+/**
+ * Converts a pixel value to rem units.
+ *
+ * @param {Number} $size
+ *   Pixel value to convert (can be unitless or px).
+ *
+ * @returns {Number}
+ *   Converted rem value based on a 20px root font size.
+ *
+ * @example
+ *   font-size: pxToRem(24); // 1.2rem
+ */
+@function pxToRem($size) {
+    @if math.is-unitless($size) {
+        $size: $size * 1px;
+    } @else if unit($size) != 'px' {
+        @error "pxToRem() expects a px value, got #{unit($size)}";
+    }
+
+    @return math.div($size, 20px) * 1rem;
+}
+
+/* =========================================================
+   Mixin: font-face
+   ========================================================= */
+
+/**
+ * Registers a font using @font-face.
+ *
+ * @param {String} $family
+ *   Font-family name to be used in CSS.
+ *
+ * @param {String} $file
+ *   Path to the font file.
+ *
+ * @param {Number} $weight
+ *   Font weight (e.g. 300, 400, 700).
+ *
+ * @param {String} $style
+ *   Font style (normal | italic).
+ *   Default: normal
+ *
+ * @example
+ *   @include font-face(
+ *     'Poppins',
+ *     '/assets/fonts/poppins/Poppins-Regular.ttf',
+ *     400
+ *   );
+ */
+@mixin font-face($family, $file, $weight, $style: normal) {
+    @font-face {
+        font-family: $family;
+        src: url($file) format('truetype');
+        font-weight: $weight;
+        font-style: $style;
+        font-display: swap;
+    }
+}
+
+/* =========================================================
+   Responsive Mixins
+   ========================================================= */
+
+/**
+ * Desktop breakpoint styles.
+ *
+ * @example
+ *   @include respond-desktop {
+ *     padding: 2rem;
+ *   }
+ */
+@mixin respond-desktop {
+    @media (min-width: $bp-large) {
+        @content;
+    }
+}
+
+/**
+ * Tablet breakpoint styles.
+ *
+ * @example
+ *   @include respond-tablet {
+ *     font-size: pxToRem(14);
+ *   }
+ */
+@mixin respond-tablet {
+    @media (min-width: $bp-tablet) {
+        @content;
+    }
+}
