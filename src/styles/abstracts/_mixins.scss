@@ -24,7 +24,7 @@
         @error "pxToRem() expects a px value, got #{unit($size)}";
     }
 
-    @return math.div($size, 16px) * 1rem;
+    @return math.div($size, 20px) * 1rem;
 }
 
 /* =========================================================

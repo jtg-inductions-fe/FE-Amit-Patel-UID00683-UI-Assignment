@@ -3,13 +3,9 @@
 
 body {
     font-family: 'Poppins';
-    font-size: 16px;
+    font-size: pxToRem(16);
     line-height: 1.5;
     color: $color-full-black;
-
-    @include respond-tablet {
-        font-size: 16px;
-    }
 }
 
 .heading {
@@ -17,7 +13,7 @@ body {
 
     &__logo {
         font-family: 'Josefin Sans';
-        font-size: 30px;
+        font-size: pxToRem(30);
         font-weight: 700;
 
         &--medium {
@@ -27,35 +23,35 @@ body {
 
     &--h1 {
         font-weight: 700;
-        font-size: 18px;
+        font-size: pxToRem(18);
         @include respond-tablet {
-            font-size: 36px;
+            font-size: pxToRem(36);
         }
     }
 
     &--h2 {
         font-weight: 700;
-        font-size: 32px;
+        font-size: pxToRem(32);
     }
 
     &--h3 {
         font-weight: 300;
-        font-size: 32px;
+        font-size: pxToRem(32);
     }
 
     &--h4 {
         font-weight: 500;
-        font-size: 24px;
+        font-size: pxToRem(24);
     }
 
     &--h5 {
         font-weight: 400;
-        font-size: 24px;
+        font-size: pxToRem(24);
     }
 
     &--h6 {
         font-weight: 400;
-        font-size: 14px;
+        font-size: pxToRem(14);
     }
 }
 
@@ -64,12 +60,12 @@ body {
 
     &--v1 {
         font-weight: 700;
-        font-size: 18px;
+        font-size: pxToRem(18);
     }
 
     &--v2 {
         font-weight: 500;
-        font-size: 16px;
+        font-size: (16);
     }
 }
 
@@ -78,20 +74,20 @@ body {
 
     &--paragraph {
         font-weight: 400;
-        font-size: 16px;
+        font-size: pxToRem(14);
         @include respond-tablet {
-            font-size: 16px;
+            font-size: pxToRem(16);
         }
     }
 
     &--title {
         font-weight: 700;
-        font-size: 18px;
+        font-size: pxToRem(18);
     }
 
     &--subtitle {
         font-weight: 500;
-        font-size: 16px;
+        font-size: pxToRem(16);
     }
 }
 
@@ -100,19 +96,19 @@ body {
     font-weight: 400;
 
     &--nav {
-        font-size: 16px;
+        font-size: pxToRem(16);
     }
 
     &--icon {
-        font-size: 20px;
+        font-size: pxToRem(20);
     }
 
     &--button {
         font-weight: 700;
-        font-size: 16px;
+        font-size: pxToRem(16);
     }
 
     &--brand {
-        font-size: 14px;
+        font-size: pxToRem(14);
     }
 }
