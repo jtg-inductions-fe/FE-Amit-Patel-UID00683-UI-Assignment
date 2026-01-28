@@ -12,6 +12,7 @@ $transition-fast: 180ms ease;
     --color-secondary: #{$color-green-vogue};
     --color-white: #{$color-full-white};
     --color-text: #{$color-full-black};
+    --color-content: #{$color-satsuma};
 }
 
 /* base header */
@@ -21,7 +22,7 @@ $transition-fast: 180ms ease;
     background: var(--color-white);
     box-shadow: 0 pxToRem(3) 0 rgba(0, 0, 0, 0.09);
     white-space: nowrap;
-    z-index: 130;
+    z-index: $z-header;
 
     &__inner {
         height: $nav-height;
@@ -49,7 +50,6 @@ $transition-fast: 180ms ease;
         justify-content: center;
         font-size: pxToRem(30);
         line-height: 1;
-        z-index: 140;
         transition:
             background-color $transition-fast,
             color $transition-fast;
@@ -85,7 +85,6 @@ $transition-fast: 180ms ease;
         display: inline-flex;
         align-items: center;
         gap: pxToRem(15);
-        z-index: 60;
     }
 
     /* Logo */
@@ -159,6 +158,10 @@ $transition-fast: 180ms ease;
             text-transform: uppercase;
             cursor: pointer;
             color: var(--color-text);
+            &:hover {
+                transform: scale(1.05);
+                transition: $transition-fast;
+            }
         }
 
         /* dropdown */
@@ -177,7 +180,7 @@ $transition-fast: 180ms ease;
                 opacity $transition-fast,
                 transform $transition-fast,
                 visibility $transition-fast;
-            z-index: 80;
+            z-index: $z-dropdown;
 
             .dropdown__list {
                 list-style: none;
@@ -186,8 +189,12 @@ $transition-fast: 180ms ease;
 
             .dropdown__item {
                 padding: pxToRem(22.5) pxToRem(22.5);
-                color: var(--color-primary);
+                color: var(--color-secondary);
                 cursor: pointer;
+                &:hover {
+                    transform: scale(1.05);
+                    transition: $transition-fast;
+                }
             }
         }
 
@@ -201,6 +208,7 @@ $transition-fast: 180ms ease;
 
     .drawer {
         position: fixed;
+        z-index: $z-drawer;
         left: 0;
         top: $nav-height;
         width: $drawer-width;
@@ -214,12 +222,11 @@ $transition-fast: 180ms ease;
             opacity $transition-fast,
             transform $transition-fast,
             visibility $transition-fast;
-        z-index: 120;
         box-shadow: pxToRem(8) 0 pxToRem(25) rgba(0, 0, 0, 0.22);
 
         &__title {
             margin: pxToRem(25) pxToRem(25) pxToRem(13);
-            color: var(--color-secondary);
+            color: var(--color-content);
         }
 
         &__list {
@@ -227,6 +234,7 @@ $transition-fast: 180ms ease;
             padding: 0;
             margin: 0;
             li {
+                color: var(--color-secondary);
                 padding: pxToRem(18) pxToRem(25);
                 cursor: pointer;
                 transition:
@@ -252,7 +260,7 @@ $transition-fast: 180ms ease;
 
     a {
         text-decoration: none;
-        color: var(--color-secondary);
+        color: inherit;
     }
 }
 

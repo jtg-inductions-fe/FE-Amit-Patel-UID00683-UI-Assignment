@@ -9,6 +9,15 @@ body {
     color: $color-full-black;
 }
 
+button,
+input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
+
 .heading {
     font-family: 'Poppins';
 

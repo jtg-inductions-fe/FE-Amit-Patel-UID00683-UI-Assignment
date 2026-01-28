@@ -1,6 +1,29 @@
+/* =========================================================
+   Focus Management Utilities
+   ========================================================= */
+
+/**
+ * Selector for all focusable elements.
+ *
+ * Used to trap keyboard focus inside interactive components
+ * like drawers or dialogs.
+ */
 const FOCUSABLE_SELECTOR =
     'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])';
 
+/* =========================================================
+   Function: drawerFocusTrap
+   ========================================================= */
+
+/**
+ * Traps keyboard focus inside the mobile drawer when open.
+ *
+ * Cycles focus between first and last focusable elements
+ * when using Tab / Shift+Tab.
+ *
+ * @param {KeyboardEvent} e
+ *   Keydown event triggered inside the drawer.
+ */
 function drawerFocusTrap(e) {
     if (e.key !== 'Tab') return;
 
@@ -30,12 +53,25 @@ function drawerFocusTrap(e) {
     }
 }
 
+/* =========================================================
+   Click Interaction Handler
+   ========================================================= */
+
+/**
+ * Handles click interactions for:
+ * - Mobile drawer toggle
+ * - Click outside drawer to close
+ * - Navigation dropdown open/close
+ *
+ * Manages ARIA attributes and active states accordingly.
+ */
 document.addEventListener('click', (e) => {
     const drawer = document.querySelector('.drawer');
     const toggleBtn = e.target.closest('.header__toggle');
     const insideDrawer = e.target.closest('.drawer');
     const insideNav = e.target.closest('.nav');
 
+    // Toggle mobile drawer
     if (toggleBtn) {
         if (drawer) {
             const isOpen = drawer.classList.toggle('is-open');
@@ -58,6 +94,7 @@ document.addEventListener('click', (e) => {
         return;
     }
 
+    // Close drawer on outside click
     if (drawer?.classList.contains('is-open') && !insideDrawer) {
         drawer.classList.remove('is-open');
         drawer.setAttribute('aria-hidden', 'true');
@@ -73,6 +110,7 @@ document.addEventListener('click', (e) => {
         document.querySelector('.header__toggle')?.focus();
     }
 
+    // Handle nav dropdown triggers
     const trigger = e.target.closest('[aria-controls]');
     if (!trigger) {
         if (!insideNav) {
@@ -106,34 +144,45 @@ document.addEventListener('click', (e) => {
     panel.setAttribute('aria-hidden', String(!isOpen));
 });
 
+/* =========================================================
+   Global Keyboard Handler
+   ========================================================= */
+
+/**
+ * Handles Escape key behavior.
+ *
+ * - Closes mobile drawer if open
+ * - Closes any open navigation dropdowns
+ * - Restores focus to drawer toggle
+ */
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const drawer = document.querySelector('.drawer');
-        if (drawer?.classList.contains('is-open')) {
-            drawer.classList.remove('is-open');
-            drawer.setAttribute('aria-hidden', 'true');
+    if (e.key !== 'Escape') return;
 
-            drawer.removeEventListener('keydown', drawerFocusTrap);
-            document
-                .querySelectorAll('.header__toggle, .icon-favorite')
-                .forEach((btn) => {
-                    btn.classList.remove('is-active');
-                    btn.setAttribute('aria-pressed', 'false');
-                });
+    const drawer = document.querySelector('.drawer');
+    if (drawer?.classList.contains('is-open')) {
+        drawer.classList.remove('is-open');
+        drawer.setAttribute('aria-hidden', 'true');
 
-            document.querySelector('.header__toggle')?.focus();
-        }
+        drawer.removeEventListener('keydown', drawerFocusTrap);
+        document
+            .querySelectorAll('.header__toggle, .icon-favorite')
+            .forEach((btn) => {
+                btn.classList.remove('is-active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
 
-        document.querySelectorAll('.nav__item.is-open').forEach((item) => {
-            item.classList.remove('is-open');
-            const trigger = item.querySelector('[aria-controls]');
-            if (trigger) {
-                trigger.setAttribute('aria-expanded', 'false');
-                const panel = document.getElementById(
-                    trigger.getAttribute('aria-controls'),
-                );
-                panel?.setAttribute('aria-hidden', 'true');
-            }
-        });
+        document.querySelector('.header__toggle')?.focus();
     }
+
+    document.querySelectorAll('.nav__item.is-open').forEach((item) => {
+        item.classList.remove('is-open');
+        const trigger = item.querySelector('[aria-controls]');
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'false');
+            const panel = document.getElementById(
+                trigger.getAttribute('aria-controls'),
+            );
+            panel?.setAttribute('aria-hidden', 'true');
+        }
+    });
 });

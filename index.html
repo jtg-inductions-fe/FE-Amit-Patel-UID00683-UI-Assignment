@@ -4,11 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Alura Books</title>
+        <link rel="icon" type="image/png" href="/assets/images/Logo.svg" />
         <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
         <header class="header" role="banner">
-            <div class="header__inner">
+            <div class="header__inner container">
                 <div class="header__left">
                     <div class="header__brand">
                         <!-- header__toggle -->
@@ -39,6 +40,38 @@
                         </a>
                     </div>
 
+                    <!-- DRAWER -->
+                    <aside
+                        id="mobile-drawer"
+                        class="drawer"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-hidden="true"
+                        aria-labelledby="drawer-title"
+                    >
+                        <div class="drawer__content">
+                            <h4
+                                id="drawer-title"
+                                class="label label--button drawer__title"
+                            >
+                                Categorias
+                            </h4>
+                            <ul class="label--nav label drawer__list">
+                                <li><a href="#">PROGRAMAÇÃO</a></li>
+                                <li><a href="#">FRONT-END</a></li>
+                                <li><a href="#">INFRAESTRUTURA</a></li>
+                                <li><a href="#">BUSINESS</a></li>
+                                <li><a href="#">DESIGN &amp; UX</a></li>
+                            </ul>
+                            <h4
+                                id="drawer-title"
+                                class="label label--button drawer__title"
+                            >
+                                MINHA ESTANTE
+                            </h4>
+                        </div>
+                    </aside>
+
                     <!-- NAV-->
                     <nav class="nav" aria-label="Primary">
                         <ul class="label label--nav nav__list">
@@ -54,7 +87,7 @@
 
                                 <div
                                     id="nav-dropdown"
-                                    class="label label--nav nav__dropdown"
+                                    class="nav__dropdown"
                                     aria-hidden="true"
                                 >
                                     <ul class="dropdown__list">
@@ -112,32 +145,6 @@
                     >
                 </div>
             </div>
-
-            <!-- DRAWER -->
-            <aside
-                id="mobile-drawer"
-                class="drawer"
-                role="dialog"
-                aria-modal="true"
-                aria-hidden="true"
-                aria-labelledby="drawer-title"
-            >
-                <div class="drawer__content">
-                    <h4
-                        id="drawer-title"
-                        class="label label--button drawer__title"
-                    >
-                        Categorias
-                    </h4>
-                    <ul class="label--nav label drawer__list">
-                        <li><a href="#">PROGRAMAÇÃO</a></li>
-                        <li><a href="#">FRONT-END</a></li>
-                        <li><a href="#">INFRAESTRUTURA</a></li>
-                        <li><a href="#">BUSINESS</a></li>
-                        <li><a href="#">DESIGN &amp; UX</a></li>
-                    </ul>
-                </div>
-            </aside>
         </header>
         <script type="module" src="./src/script/index.js"></script>
     </body>
