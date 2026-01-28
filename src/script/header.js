@@ -92,6 +92,112 @@ function closeDrawer() {
 }
 
 /* =========================================================
+   Dropdown helpers
+   ========================================================= */
+
+/**
+ * Close any open nav dropdowns.
+ */
+function closeAllDropdowns() {
+    document.querySelectorAll('.nav__item.is-open').forEach((item) => {
+        item.classList.remove('is-open');
+        const trigger = item.querySelector('[aria-controls]');
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'false');
+            const panel = document.getElementById(
+                trigger.getAttribute('aria-controls'),
+            );
+            panel?.setAttribute('aria-hidden', 'true');
+        }
+    });
+}
+
+/**
+ * Open specific nav item dropdown and ensure others should be closed.
+ * @param {HTMLElement} item - .nav__item element
+ */
+function openDropdown(item) {
+    if (!item) return;
+    if (!item.classList.contains('is-open')) {
+        closeAllDropdowns();
+        item.classList.add('is-open');
+        const trigger = item.querySelector('[aria-controls]');
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'true');
+            const panel = document.getElementById(
+                trigger.getAttribute('aria-controls'),
+            );
+            panel?.setAttribute('aria-hidden', 'false');
+        }
+    }
+}
+
+/**
+ * Close a specific nav item dropdown.
+ * @param {HTMLElement} item - .nav__item element
+ */
+function closeDropdown(item) {
+    if (!item) return;
+    if (item.classList.contains('is-open')) {
+        item.classList.remove('is-open');
+        const trigger = item.querySelector('[aria-controls]');
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'false');
+            const panel = document.getElementById(
+                trigger.getAttribute('aria-controls'),
+            );
+            panel?.setAttribute('aria-hidden', 'true');
+        }
+    }
+}
+
+/* =========================================================
+   Hover and keyboard behavior
+   ========================================================= */
+
+/**
+ * Enables hover behavior for desktop and keeps keyboard focus behavior.
+ */
+function initNavDropdownBehavior() {
+    const items = document.querySelectorAll('.nav__item--has-dropdown');
+
+    items.forEach((item) => {
+        // Mouse hover: enter -> open , leave -> close
+        item.addEventListener('mouseenter', () => {
+            openDropdown(item);
+        });
+
+        item.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+                if (!item.contains(document.activeElement)) closeDropdown(item);
+            }, 50);
+        });
+
+        const trigger = item.querySelector('[aria-controls]');
+        if (trigger) {
+            trigger.addEventListener('focus', () => openDropdown(item));
+            trigger.addEventListener('blur', () => {
+                setTimeout(() => {
+                    if (!item.contains(document.activeElement))
+                        closeDropdown(item);
+                }, 10);
+            });
+        }
+
+        const panelId = trigger?.getAttribute('aria-controls');
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (panel) {
+            panel.addEventListener('focusout', () => {
+                setTimeout(() => {
+                    if (!item.contains(document.activeElement))
+                        closeDropdown(item);
+                }, 10);
+            });
+        }
+    });
+}
+
+/* =========================================================
    Click Interaction Handler
    ========================================================= */
 
@@ -126,7 +232,11 @@ document.addEventListener('click', (e) => {
         toggleBtn.classList.toggle('is-active');
         toggleBtn.setAttribute(
             'aria-expanded',
-            String(toggleBtn.classList.contains('is-active')),
+            String(
+                document
+                    .querySelector('.drawer')
+                    ?.classList.contains('is-open'),
+            ),
         );
 
         return;
@@ -138,48 +248,34 @@ document.addEventListener('click', (e) => {
         drawer.setAttribute('aria-hidden', 'true');
 
         drawer.removeEventListener('keydown', drawerFocusTrap);
-        document
-            .querySelectorAll('.header__toggle, .icon-favorite')
-            .forEach((btn) => {
-                btn.classList.remove('is-active');
-                btn.setAttribute('aria-expanded', 'false');
-            });
+        document.querySelectorAll('.header__toggle').forEach((btn) => {
+            btn.classList.remove('is-active');
+            btn.setAttribute('aria-expanded', 'false');
+        });
 
         document.querySelector('.header__toggle')?.focus();
     }
 
     // Handle nav dropdown triggers
     const trigger = e.target.closest('[aria-controls]');
-    if (!trigger) {
-        if (!insideNav) {
-            document.querySelectorAll('.nav__item.is-open').forEach((item) => {
-                item.classList.remove('is-open');
-                const t = item.querySelector('[aria-controls]');
-                if (t) {
-                    t.setAttribute('aria-expanded', 'false');
-                    const panel = document.getElementById(
-                        t.getAttribute('aria-controls'),
-                    );
-                    panel?.setAttribute('aria-hidden', 'true');
-                }
-            });
+    if (trigger) {
+        if (trigger.tagName.toLowerCase() === 'a') e.preventDefault();
+
+        const parentItem = trigger.closest('.nav__item');
+        if (!parentItem) return;
+
+        if (parentItem.classList.contains('is-open')) {
+            closeDropdown(parentItem);
+        } else {
+            openDropdown(parentItem);
         }
+
         return;
     }
 
-    const panel = document.getElementById(
-        trigger.getAttribute('aria-controls'),
-    );
-    if (!panel) return;
-
-    if (trigger.tagName.toLowerCase() === 'a') e.preventDefault();
-
-    const parentItem = trigger.closest('.nav__item');
-    if (!parentItem) return;
-
-    const isOpen = parentItem.classList.toggle('is-open');
-    trigger.setAttribute('aria-expanded', String(isOpen));
-    panel.setAttribute('aria-hidden', String(!isOpen));
+    if (!insideNav) {
+        closeAllDropdowns();
+    }
 });
 
 /* =========================================================
@@ -198,31 +294,9 @@ document.addEventListener('keydown', (e) => {
 
     const drawer = document.querySelector('.drawer');
     if (drawer?.classList.contains('is-open')) {
-        drawer.classList.remove('is-open');
-        drawer.setAttribute('aria-hidden', 'true');
-
-        drawer.removeEventListener('keydown', drawerFocusTrap);
-        document
-            .querySelectorAll('.header__toggle, .icon-favorite')
-            .forEach((btn) => {
-                btn.classList.remove('is-active');
-                btn.setAttribute('aria-expanded', 'false');
-            });
-
-        document.querySelector('.header__toggle')?.focus();
+        closeDrawer();
     }
-
-    document.querySelectorAll('.nav__item.is-open').forEach((item) => {
-        item.classList.remove('is-open');
-        const trigger = item.querySelector('[aria-controls]');
-        if (trigger) {
-            trigger.setAttribute('aria-expanded', 'false');
-            const panel = document.getElementById(
-                trigger.getAttribute('aria-controls'),
-            );
-            panel?.setAttribute('aria-hidden', 'true');
-        }
-    });
+    closeAllDropdowns();
 });
 
 /* =========================================================
@@ -235,8 +309,16 @@ document.addEventListener('keydown', (e) => {
  * Prevents hidden open dialogs when the drawer toggle
  * is no longer visible.
  */
-tabletMQ.addEventListener('change', (e) => {
-    if (e.matches) {
+tabletMQ.addEventListener('change', (ev) => {
+    if (ev.matches) {
         closeDrawer();
     }
+});
+
+/* =========================================================
+   Init
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+    initNavDropdownBehavior();
 });

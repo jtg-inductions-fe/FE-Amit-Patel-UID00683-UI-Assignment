@@ -84,13 +84,13 @@
                                     class="nav__link"
                                     type="button"
                                     aria-expanded="false"
-                                    aria-controls="nav-dropdown"
+                                    aria-controls="categorias-dropdown"
                                 >
                                     CATEGORIAS
                                 </button>
 
                                 <div
-                                    id="nav-dropdown"
+                                    id="categorias-dropdown"
                                     class="nav__dropdown"
                                     aria-hidden="true"
                                 >
@@ -117,8 +117,31 @@
                             <li class="nav__item">
                                 <a class="nav__link" href="#">FAVORITOS</a>
                             </li>
-                            <li class="nav__item">
-                                <a class="nav__link" href="#">MINHA ESTANTE</a>
+
+                            <li class="nav__item nav__item--has-dropdown">
+                                <button
+                                    class="nav__link"
+                                    type="button"
+                                    aria-expanded="false"
+                                    aria-controls="minha-estante-dropdown"
+                                >
+                                    MINHA ESTANTE
+                                </button>
+
+                                <div
+                                    id="minha-estante-dropdown"
+                                    class="nav__dropdown"
+                                    aria-hidden="true"
+                                >
+                                    <ul class="dropdown__list">
+                                        <li class="dropdown__item">
+                                            <a href="#">Livros comprados</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="#">Livros guardados</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                     </nav>

@@ -95,7 +95,6 @@
         &__text {
             display: none;
             align-items: baseline;
-            transform: translateY(6px);
         }
 
         &__alura,
@@ -282,6 +281,7 @@
                 align-items: center;
             }
             &__mark {
+                transform: translateY(-6px);
                 width: pxToRem(40);
                 height: pxToRem(40);
             }
