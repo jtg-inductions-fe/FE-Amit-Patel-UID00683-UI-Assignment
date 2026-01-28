@@ -233,13 +233,13 @@
                 color: var(--color-secondary);
                 padding: 0;
                 cursor: pointer;
-                transition:
-                    background-color $transition-fast,
-                    color $transition-fast;
                 > a {
                     display: block;
                     padding: pxToRem(12) pxToRem(25);
                     color: inherit;
+                    transition:
+                        background-color $transition-fast,
+                        color $transition-fast;
                 }
             }
 
