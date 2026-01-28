@@ -88,7 +88,7 @@ function closeDrawer() {
     drawer.removeEventListener('keydown', drawerFocusTrap);
 
     toggleBtn?.classList.remove('is-active');
-    toggleBtn?.setAttribute('aria-pressed', 'false');
+    toggleBtn?.setAttribute('aria-expanded', 'false');
 }
 
 /* =========================================================
@@ -125,7 +125,7 @@ document.addEventListener('click', (e) => {
 
         toggleBtn.classList.toggle('is-active');
         toggleBtn.setAttribute(
-            'aria-pressed',
+            'aria-expanded',
             String(toggleBtn.classList.contains('is-active')),
         );
 
@@ -142,7 +142,7 @@ document.addEventListener('click', (e) => {
             .querySelectorAll('.header__toggle, .icon-favorite')
             .forEach((btn) => {
                 btn.classList.remove('is-active');
-                btn.setAttribute('aria-pressed', 'false');
+                btn.setAttribute('aria-expanded', 'false');
             });
 
         document.querySelector('.header__toggle')?.focus();
@@ -206,7 +206,7 @@ document.addEventListener('keydown', (e) => {
             .querySelectorAll('.header__toggle, .icon-favorite')
             .forEach((btn) => {
                 btn.classList.remove('is-active');
-                btn.setAttribute('aria-pressed', 'false');
+                btn.setAttribute('aria-expanded', 'false');
             });
 
         document.querySelector('.header__toggle')?.focus();

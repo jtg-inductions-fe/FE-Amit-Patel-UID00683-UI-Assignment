@@ -181,10 +181,14 @@
             }
 
             .dropdown__item {
-                padding: pxToRem(22.5) pxToRem(22.5);
+                padding: 0;
                 color: var(--color-secondary);
                 cursor: pointer;
                 transition: $transition-fast;
+                > a {
+                    display: block;
+                    padding: pxToRem(22.5) pxToRem(22.5);
+                }
                 &:hover {
                     transform: scale(1.05);
                 }
@@ -228,14 +232,19 @@
             margin: 0;
             li {
                 color: var(--color-secondary);
-                padding: pxToRem(12) pxToRem(25);
+                padding: 0;
                 cursor: pointer;
                 transition:
                     background-color $transition-fast,
                     color $transition-fast;
+                > a {
+                    display: block;
+                    padding: pxToRem(12) pxToRem(25);
+                    color: inherit;
+                }
             }
 
-            li:hover {
+            li:hover > a {
                 background: linear-gradient(
                     to right,
                     var(--color-secondary),
