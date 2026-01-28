@@ -1,6 +1,5 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
-@use '../themes/themes' as *;
 
 /* base header */
 .header {
@@ -253,8 +252,6 @@
 
 @include respond-tablet {
     .header {
-        background: var(--color-white);
-
         &__inner {
             padding-inline: pxToRem(80);
         }
