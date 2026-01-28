@@ -1,18 +1,8 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-:root {
-    --color-primary: #{$color-different-blue};
-    --color-secondary: #{$color-green-vogue};
-    --color-white: #{$color-full-white};
-    --color-text: #{$color-full-black};
-}
-
 .hero {
-    display: flex;
-    justify-content: center;
     height: pxToRem(215);
-    width: 100%;
     color: var(--color-white);
     background: linear-gradient(
         to right,
@@ -32,7 +22,6 @@
         justify-content: center;
 
         .search {
-            display: none;
             height: pxToRem(44px);
             width: pxToRem(380px);
             display: flex;
@@ -49,6 +38,7 @@
             }
 
             &__box {
+                width: pxToRem(250px);
                 color: var(--color-white);
                 background: transparent;
                 outline: none;
@@ -56,7 +46,6 @@
             }
 
             &__box::placeholder {
-                width: 100%;
                 color: var(--color-white);
             }
         }
