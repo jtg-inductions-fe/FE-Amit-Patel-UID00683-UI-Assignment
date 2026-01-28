@@ -1,19 +1,6 @@
-@use 'sass:math';
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
-
-$nav-height: pxToRem(80);
-$dropdown-width: pxToRem(180);
-$drawer-width: pxToRem(300);
-$transition-fast: 180ms ease;
-
-:root {
-    --color-primary: #{$color-different-blue};
-    --color-secondary: #{$color-green-vogue};
-    --color-white: #{$color-full-white};
-    --color-text: #{$color-full-black};
-    --color-content: #{$color-satsuma};
-}
+@use '../themes/themes' as *;
 
 /* base header */
 .header {
@@ -25,7 +12,7 @@ $transition-fast: 180ms ease;
     z-index: $z-header;
 
     &__inner {
-        height: $nav-height;
+        height: pxToRem($nav-height);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -41,11 +28,10 @@ $transition-fast: 180ms ease;
     /* hamburger (mobile) */
     &__toggle {
         display: inline-flex;
-        min-height: $nav-height;
+        min-height: pxToRem($nav-height);
         aspect-ratio: 1/1;
-        background: transparent;
-        border: 0;
         background-color: var(--color-white);
+        border: 0;
         align-items: center;
         justify-content: center;
         font-size: pxToRem(30);
@@ -158,9 +144,9 @@ $transition-fast: 180ms ease;
             text-transform: uppercase;
             cursor: pointer;
             color: var(--color-text);
+            transition: $transition-fast;
             &:hover {
                 transform: scale(1.05);
-                transition: $transition-fast;
             }
         }
 
@@ -169,7 +155,7 @@ $transition-fast: 180ms ease;
             position: absolute;
             top: 100%;
             left: 0;
-            width: $dropdown-width;
+            width: pxToRem($dropdown-width);
             background: var(--color-white);
             box-shadow: 0 pxToRem(7.5) pxToRem(22.5) rgba(0, 0, 0, 0.2);
             overflow: hidden;
@@ -191,9 +177,9 @@ $transition-fast: 180ms ease;
                 padding: pxToRem(22.5) pxToRem(22.5);
                 color: var(--color-secondary);
                 cursor: pointer;
+                transition: $transition-fast;
                 &:hover {
                     transform: scale(1.05);
-                    transition: $transition-fast;
                 }
             }
         }
@@ -210,8 +196,8 @@ $transition-fast: 180ms ease;
         position: fixed;
         z-index: $z-drawer;
         left: 0;
-        top: $nav-height;
-        width: $drawer-width;
+        top: pxToRem($nav-height);
+        width: pxToRem($drawer-width);
         background: var(--color-white);
         padding-bottom: pxToRem(18);
         transform-origin: top left;
