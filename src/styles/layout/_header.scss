@@ -313,6 +313,7 @@
                     transition:
                         background-color $transition-fast,
                         color $transition-fast;
+                    transform: $transition-fast;
                     cursor: pointer;
                 }
 
