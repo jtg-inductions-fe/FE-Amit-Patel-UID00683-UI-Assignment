@@ -10,6 +10,7 @@
     box-shadow: 0 pxToRem(3) 0 rgba(0, 0, 0, 0.09);
     white-space: nowrap;
     z-index: $z-header;
+    position: relative;
 
     &__inner {
         height: pxToRem($nav-height);
