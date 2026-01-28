@@ -17,11 +17,11 @@
         justify-content: space-between;
         align-items: center;
         gap: pxToRem(15);
-        padding-inline-end: pxToRem(23);
+        padding-right: pxToRem(23);
     }
 
     &__left {
-        display: inline-flex;
+        display: flex;
         align-items: center;
     }
 
@@ -145,6 +145,12 @@
             cursor: pointer;
             color: var(--color-text);
             transition: $transition-fast;
+
+            &:focus-visible {
+                outline: 2px solid var(--color-primary);
+                outline-offset: 2px;
+            }
+
             &:hover {
                 transform: scale(1.05);
             }
@@ -171,6 +177,7 @@
             .dropdown__list {
                 list-style: none;
                 margin: 0;
+                padding: 0;
             }
 
             .dropdown__item {
@@ -211,7 +218,7 @@
         box-shadow: pxToRem(8) 0 pxToRem(25) rgba(0, 0, 0, 0.22);
 
         &__title {
-            margin: pxToRem(25) pxToRem(25) pxToRem(13);
+            margin: pxToRem(18) pxToRem(18) pxToRem(13);
             color: var(--color-content);
         }
 
@@ -221,7 +228,7 @@
             margin: 0;
             li {
                 color: var(--color-secondary);
-                padding: pxToRem(18) pxToRem(25);
+                padding: pxToRem(12) pxToRem(25);
                 cursor: pointer;
                 transition:
                     background-color $transition-fast,
@@ -262,7 +269,7 @@
             width: pxToRem(264);
             &__text {
                 max-width: pxToRem(16);
-                display: inline-flex;
+                display: flex;
                 align-items: center;
             }
             &__mark {

@@ -12,6 +12,18 @@ const FOCUSABLE_SELECTOR =
     'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])';
 
 /* =========================================================
+   Media Queries
+   ========================================================= */
+
+/**
+ * Tablet breakpoint media query.
+ *
+ * Used to sync layout-driven behavior (drawer visibility)
+ * with responsive styles.
+ */
+const tabletMQ = window.matchMedia('(min-width: 1024px)');
+
+/* =========================================================
    Function: drawerFocusTrap
    ========================================================= */
 
@@ -51,6 +63,32 @@ function drawerFocusTrap(e) {
         e.preventDefault();
         first.focus();
     }
+}
+
+/* =========================================================
+   Function: closeDrawer
+   ========================================================= */
+
+/**
+ * Closes the mobile drawer and resets related state.
+ *
+ * Used when:
+ * - Clicking outside the drawer
+ * - Pressing Escape
+ * - Switching to tablet layout
+ */
+function closeDrawer() {
+    const drawer = document.querySelector('.drawer');
+    const toggleBtn = document.querySelector('.header__toggle');
+
+    if (!drawer || !drawer.classList.contains('is-open')) return;
+
+    drawer.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
+    drawer.removeEventListener('keydown', drawerFocusTrap);
+
+    toggleBtn?.classList.remove('is-active');
+    toggleBtn?.setAttribute('aria-pressed', 'false');
 }
 
 /* =========================================================
@@ -185,4 +223,20 @@ document.addEventListener('keydown', (e) => {
             panel?.setAttribute('aria-hidden', 'true');
         }
     });
+});
+
+/* =========================================================
+   Responsive State Sync
+   ========================================================= */
+
+/**
+ * Closes the mobile drawer when switching to tablet layout.
+ *
+ * Prevents hidden open dialogs when the drawer toggle
+ * is no longer visible.
+ */
+tabletMQ.addEventListener('change', (e) => {
+    if (e.matches) {
+        closeDrawer();
+    }
 });
