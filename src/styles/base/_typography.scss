@@ -41,7 +41,14 @@ input {
 
     &--h2 {
         font-weight: 700;
-        font-size: pxToRem(32);
+        font-size: pxToRem(18);
+
+        @include respond-tablet {
+            font-size: pxToRem(26);
+        }
+        @include respond-desktop {
+            font-size: pxToRem(32);
+        }
     }
 
     &--h3 {
@@ -120,5 +127,13 @@ input {
 
     &--brand {
         font-size: pxToRem(14);
+    }
+
+    &--eyebrow {
+        font-weight: 700;
+        font-size: pxToRem(16);
+        @include respond-desktop {
+            font-size: pxToRem(32);
+        }
     }
 }

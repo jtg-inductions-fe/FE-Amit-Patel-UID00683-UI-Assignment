@@ -13,17 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         loop: true,
         slidesPerView: 2.2,
-        spaceBetween: 8,
         centeredSlides: true,
 
         breakpoints: {
             550: {
                 slidesPerView: 3,
-                spaceBetween: 8,
-            },
-            1728: {
-                slidesPerView: 3,
-                spaceBetween: 8,
             },
         },
 

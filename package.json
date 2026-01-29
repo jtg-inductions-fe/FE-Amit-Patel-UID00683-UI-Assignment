@@ -41,6 +41,6 @@
         "*.{html,scss,json}": "prettier --check"
     },
     "dependencies": {
-        "swiper": "^12.0.3"
+        "swiper": "^12.1.0"
     }
 }
