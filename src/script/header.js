@@ -44,7 +44,7 @@ function drawerFocusTrap(e) {
 
     const focusables = Array.from(
         drawer.querySelectorAll(FOCUSABLE_SELECTOR),
-    ).filter((el) => !el.disabled);
+    ).filter((el) => !el.disabled && el.offsetParent !== null);
 
     if (!focusables.length) {
         e.preventDefault();

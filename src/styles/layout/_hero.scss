@@ -1,0 +1,83 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.hero {
+    height: pxToRem(215);
+    color: var(--color-white);
+    background: linear-gradient(
+        to right,
+        var(--color-secondary),
+        rgb(from var(--color-secondary) r g b / 0.9)
+    );
+    text-align: center;
+    text-wrap: balance;
+
+    &__inner {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        gap: pxToRem(8);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .search {
+            height: pxToRem(44);
+            width: min(90%, pxToRem(380));
+            display: flex;
+            justify-content: center;
+            margin-block: pxToRem(13);
+            border: 1px solid;
+            border-radius: pxToRem(24);
+
+            &__icon {
+                font-size: pxToRem(20);
+                background: none;
+                border: none;
+                color: var(--color-white);
+            }
+
+            &__box {
+                width: min(90%, pxToRem(250));
+                color: var(--color-white);
+                background: transparent;
+                outline: none;
+                border: none;
+            }
+
+            &__box::placeholder {
+                width: 100%;
+                color: var(--color-white);
+            }
+        }
+    }
+}
+
+@include respond-tablet {
+    .hero {
+        height: pxToRem(330);
+        background: linear-gradient(
+            to right,
+            var(--color-secondary),
+            rgb(from var(--color-secondary) r g b / 0.95)
+        );
+
+        &__inner {
+            gap: pxToRem(4);
+
+            .search {
+                height: pxToRem(56);
+                width: pxToRem(476);
+                margin-block: pxToRem(25);
+            }
+        }
+    }
+}
+
+@include respond-desktop {
+    .hero {
+        .search {
+            width: pxToRem(586);
+        }
+    }
+}
