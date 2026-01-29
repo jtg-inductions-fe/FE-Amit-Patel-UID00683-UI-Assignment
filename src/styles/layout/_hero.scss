@@ -16,29 +16,29 @@
         height: 100%;
         width: 100%;
         display: flex;
-        gap: pxToRem(8px);
+        gap: pxToRem(8);
         flex-direction: column;
         align-items: center;
         justify-content: center;
 
         .search {
-            height: pxToRem(44px);
-            width: pxToRem(380px);
+            height: pxToRem(44);
+            width: pxToRem(380);
             display: flex;
             justify-content: center;
             margin-block: pxToRem(13);
             border: 1px solid;
-            border-radius: pxToRem(24px);
+            border-radius: pxToRem(24);
 
             &__icon {
-                font-size: pxToRem(20px);
+                font-size: pxToRem(20);
                 background: none;
                 border: none;
                 color: var(--color-white);
             }
 
             &__box {
-                width: pxToRem(250px);
+                width: pxToRem(250);
                 color: var(--color-white);
                 background: transparent;
                 outline: none;
@@ -55,7 +55,7 @@
 
 @include respond-tablet {
     .hero {
-        height: pxToRem(330px);
+        height: pxToRem(330);
         background: linear-gradient(
             to right,
             var(--color-secondary),
@@ -63,10 +63,10 @@
         );
 
         &__inner {
-            gap: pxToRem(4px);
+            gap: pxToRem(4);
 
             .search {
-                width: pxToRem(476px);
+                width: pxToRem(476);
                 margin-block: pxToRem(25);
             }
         }
@@ -76,7 +76,7 @@
 @include respond-desktop {
     .hero {
         .search {
-            width: pxToRem(586px);
+            width: pxToRem(586);
         }
     }
 }

@@ -9,7 +9,7 @@
  * like drawers or dialogs.
  */
 const FOCUSABLE_SELECTOR =
-    'a, button, input, textarea, select, details, summary [tabindex]:not([tabindex="-1"])';
+    'a, button, input, textarea, select, details, summary, [tabindex]:not([tabindex="-1"])';
 
 /* =========================================================
    Media Queries
