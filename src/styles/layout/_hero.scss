@@ -23,7 +23,7 @@
 
         .search {
             height: pxToRem(44);
-            width: pxToRem(380);
+            width: min(90%, pxToRem(380));
             display: flex;
             justify-content: center;
             margin-block: pxToRem(13);
@@ -38,7 +38,7 @@
             }
 
             &__box {
-                width: pxToRem(250);
+                width: min(90%, pxToRem(250));
                 color: var(--color-white);
                 background: transparent;
                 outline: none;
