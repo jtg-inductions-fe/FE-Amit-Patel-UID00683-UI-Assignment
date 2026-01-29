@@ -9,7 +9,7 @@
  * like drawers or dialogs.
  */
 const FOCUSABLE_SELECTOR =
-    'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])';
+    'a, button, input, textarea, select, details, summary [tabindex]:not([tabindex="-1"])';
 
 /* =========================================================
    Media Queries
@@ -44,7 +44,7 @@ function drawerFocusTrap(e) {
 
     const focusables = Array.from(
         drawer.querySelectorAll(FOCUSABLE_SELECTOR),
-    ).filter((el) => !el.disabled);
+    ).filter((el) => !el.disabled && el.offsetParent !== null);
 
     if (!focusables.length) {
         e.preventDefault();

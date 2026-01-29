@@ -85,6 +85,7 @@
                                     type="button"
                                     aria-expanded="false"
                                     aria-controls="categorias-dropdown"
+                                    aria-haspopup="true"
                                 >
                                     CATEGORIAS
                                 </button>
@@ -187,11 +188,7 @@
                         desenvolvimento!
                     </h2>
 
-                    <div
-                        class="search"
-                        role="search"
-                        aria-labelledby="hero-search-label"
-                    >
+                    <div class="search" role="search">
                         <button
                             type="button"
                             class="icon-search search__icon"
@@ -202,6 +199,7 @@
                             class="search__box"
                             type="search"
                             name="search-read"
+                            aria-label="Buscar livros"
                             placeholder="Qual será sua próxima leitura?"
                             aria-describedby="hero-description"
                         />
