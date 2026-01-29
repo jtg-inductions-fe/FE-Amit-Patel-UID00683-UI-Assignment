@@ -8,7 +8,7 @@
 
     &__title {
         color: var(--color-content);
-        padding: pxToRem(16px);
+        padding: pxToRem(16);
         text-align: center;
     }
 
@@ -135,13 +135,13 @@
 }
 
 .recommendation-card__media img {
-    width: 150px;
+    width: pxToRem(150);
     aspect-ratio: 0.9;
     object-fit: cover;
 }
 
 .recommendation-card__cta {
-    width: 150px;
+    width: pxToRem(150);
     border: none;
     padding: pxToRem(10) pxToRem(16);
     background-color: var(--color-content);
@@ -149,7 +149,7 @@
     cursor: pointer;
 }
 
-.icon {
+.carousel__icon {
     background: transparent;
     border: none;
     height: pxToRem(48);
@@ -206,17 +206,15 @@
         .carousel__container {
             gap: pxToRem(0);
         }
-    }
 
-    .carousel__container {
-        max-width: pxToRem(745);
-    }
-
-    .carousel-section {
         &__inner {
             flex-direction: row;
             gap: pxToRem(60);
         }
+    }
+
+    .carousel__container {
+        max-width: pxToRem(745);
     }
 
     .recommendation-card {
