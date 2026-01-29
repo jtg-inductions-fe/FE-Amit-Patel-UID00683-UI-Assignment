@@ -5,7 +5,17 @@ body {
     font-family: 'Poppins';
     font-size: pxToRem(16);
     line-height: 1.5;
+    letter-spacing: $letter-spacing-tight;
     color: $color-full-black;
+}
+
+button,
+input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: inherit;
 }
 
 .heading {

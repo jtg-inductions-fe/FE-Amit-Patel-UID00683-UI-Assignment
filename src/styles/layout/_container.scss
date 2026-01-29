@@ -1,0 +1,7 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.container {
+    max-width: pxToRem(2200);
+    margin-inline: auto;
+}

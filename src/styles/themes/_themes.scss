@@ -1,6 +1,12 @@
 @use '../abstracts/variables' as *;
+
 :root {
-    --color-primary: $color-different-blue;
-    --color-secondary: $color-green-vogue;
-    --color-tertiary: $color-christmas-white;
+    --color-primary: #{$color-different-blue};
+    --color-secondary: #{$color-green-vogue};
+    --color-content: #{$color-satsuma};
+    --color-white: #{$color-full-white};
+    --color-text: #{$color-full-black};
+    --color-background-light: #{$color-christmas-white};
+    --color-background-dark: #{$color-gunsmoke};
+    --color-surface: #{$color-black-mist};
 }

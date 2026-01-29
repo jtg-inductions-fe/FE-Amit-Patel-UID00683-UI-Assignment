@@ -1,13 +1,178 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alura Books</title>
+        <link rel="icon" type="image/svg+xml" href="/assets/images/Logo.svg" />
         <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
-        <div>Hello World</div>
+        <header class="header">
+            <div class="header__inner container">
+                <div class="header__left">
+                    <div class="header__brand">
+                        <!-- header__toggle -->
+                        <button
+                            class="header__toggle icon icon-menu"
+                            aria-label="Open Menu"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="mobile-drawer"
+                        ></button>
+
+                        <!-- logo -->
+                        <a class="logo" href="/">
+                            <img
+                                class="logo__mark"
+                                src="/assets/images/Logo.svg"
+                                alt="Alura Books Logo"
+                            />
+                            <span class="logo__text">
+                                <span class="logo__alura heading__logo"
+                                    >Alura</span
+                                >
+                                <span
+                                    class="logo__books heading__logo heading__logo--medium"
+                                    >Books</span
+                                >
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- DRAWER -->
+                    <aside
+                        id="mobile-drawer"
+                        class="drawer"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-hidden="true"
+                        aria-labelledby="drawer-title"
+                    >
+                        <div class="drawer__content">
+                            <h2
+                                id="drawer-title"
+                                class="label label--button drawer__title"
+                            >
+                                Categorias
+                            </h2>
+                            <ul class="label--nav label drawer__list">
+                                <li><a href="#">PROGRAMAÇÃO</a></li>
+                                <li><a href="#">FRONT-END</a></li>
+                                <li><a href="#">INFRAESTRUTURA</a></li>
+                                <li><a href="#">BUSINESS</a></li>
+                                <li><a href="#">DESIGN &amp; UX</a></li>
+                            </ul>
+                            <h2
+                                id="drawer-shelf-title"
+                                class="label label--button drawer__title"
+                            >
+                                MINHA ESTANTE
+                            </h2>
+                            <ul class="label--nav label drawer__list">
+                                <li><a href="#">Livros comprados</a></li>
+                                <li><a href="#">Livros guardados</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <!-- NAV-->
+                    <nav class="nav" aria-label="Primary">
+                        <ul class="label label--nav nav__list">
+                            <li class="nav__item nav__item--has-dropdown">
+                                <button
+                                    class="nav__link"
+                                    type="button"
+                                    aria-expanded="false"
+                                    aria-controls="categorias-dropdown"
+                                >
+                                    CATEGORIAS
+                                </button>
+
+                                <div
+                                    id="categorias-dropdown"
+                                    class="nav__dropdown"
+                                    aria-hidden="true"
+                                >
+                                    <ul class="dropdown__list">
+                                        <li class="dropdown__item">
+                                            <a href="#">PROGRAMAÇÃO</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="#">FRONT-END</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="#">INFRAESTRUTURA</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="#">BUSINESS</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="#">DESIGN &amp; UX</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav__item">
+                                <a class="nav__link" href="#">FAVORITOS</a>
+                            </li>
+
+                            <li class="nav__item nav__item--has-dropdown">
+                                <button
+                                    class="nav__link"
+                                    type="button"
+                                    aria-expanded="false"
+                                    aria-controls="minha-estante-dropdown"
+                                >
+                                    MINHA ESTANTE
+                                </button>
+
+                                <div
+                                    id="minha-estante-dropdown"
+                                    class="nav__dropdown"
+                                    aria-hidden="true"
+                                >
+                                    <ul class="dropdown__list">
+                                        <li class="dropdown__item">
+                                            <a href="#">Livros comprados</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="#">Livros guardados</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- ICONS -->
+                <div class="header__icons">
+                    <button
+                        class="icon icon-favorite"
+                        aria-label="Favoritos"
+                        type="button"
+                    ></button>
+
+                    <button
+                        class="icon icon-bag"
+                        aria-labelledby="bag-label"
+                        type="button"
+                    ></button>
+                    <span id="bag-label" class="icon__label">Minha sacola</span>
+
+                    <button
+                        class="icon icon-avatar"
+                        aria-labelledby="avatar-label"
+                        type="button"
+                    ></button>
+                    <span id="avatar-label" class="icon__label"
+                        >Meu perfil</span
+                    >
+                </div>
+            </div>
+        </header>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
