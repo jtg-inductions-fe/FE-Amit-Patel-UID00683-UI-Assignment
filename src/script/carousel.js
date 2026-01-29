@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el: '.carousel__pagination',
             clickable: true,
             renderBullet: (index, className) =>
-                `<button type="button" class="${className} "aria-label="Ir para página ${index + 1}"></button>`,
+                `<button type="button" class="${className}" aria-label="Ir para página ${index + 1}"></button>`,
         },
 
         a11y: {
