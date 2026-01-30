@@ -66,7 +66,10 @@ input {
 
     &--h4 {
         font-weight: 500;
-        font-size: pxToRem(24);
+        font-size: pxToRem(18);
+        @include respond-tablet {
+            font-size: pxToRem(24);
+        }
     }
 
     &--h5 {
@@ -101,6 +104,11 @@ input {
         font-weight: 400;
         font-size: pxToRem(14);
         @include respond-tablet {
+            font-size: pxToRem(16);
+        }
+
+        &--v2 {
+            font-weight: 300;
             font-size: pxToRem(16);
         }
     }

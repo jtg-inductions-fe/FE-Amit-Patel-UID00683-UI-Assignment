@@ -1,23 +1,15 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-:root {
-    --color-secondary: #{$color-green-vogue};
-    --color-white: #{$color-full-white};
-    --color-text: #{$color-full-black};
-}
-
 .newsletter {
-    width: 100%;
+    padding: pxToRem(20);
     background-color: var(--color-white);
     overflow-x: hidden;
     display: flex;
     align-items: center;
 
     &__inner {
-        max-width: pxToRem(725);
         margin-inline: auto;
-        padding: pxToRem(24) pxToRem(24);
         display: flex;
         flex-direction: column;
         gap: pxToRem(16);
@@ -35,56 +27,47 @@ input::placeholder {
     color: $color-green-vogue;
 }
 
-.newsletter__input-wrapper {
-    width: 100%;
+.newsletter__form {
     height: pxToRem(44);
+    max-width: 100%;
+    padding-inline: pxToRem(16);
+    border: pxToRem(1) solid var(--color-secondary);
     display: flex;
-    padding-inline: pxToRem(28);
-    gap: pxToRem(12);
-
     border-radius: pxToRem(24);
     background-color: var(--color-white);
+}
 
-    border: 1px solid var(--color-secondary);
-    box-sizing: border-box;
+.newsletter__input-wrapper {
+    display: flex;
+    gap: pxToRem(10);
 }
 
 .newsletter__icon {
-    height: 60%;
     align-self: center;
     color: var(--color-secondary);
     font-size: pxToRem(24);
 }
 
 .newsletter__input {
-    flex: 1;
     border: 0;
     outline: none;
     background: transparent;
     color: var(--color-text);
-    min-width: 0;
 }
 
 @include respond-tablet {
     .newsletter__inner {
-        padding-block: pxToRem(40);
+        padding-block: pxToRem(16);
+        padding-inline: pxToRem(120);
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        gap: pxToRem(90);
-        padding-inline: pxToRem(40);
-    }
-
-    .newsletter__content {
-        gap: pxToRem(20);
+        gap: pxToRem(40);
     }
 }
 
 @include respond-desktop {
     .newsletter__inner {
-        max-width: pxToRem(775);
-        width: pxToRem(775);
-        padding-block: pxToRem(80);
-        gap: pxToRem(10);
+        padding-block: pxToRem(32);
     }
 }
