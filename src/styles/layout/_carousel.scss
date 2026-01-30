@@ -62,6 +62,14 @@
     justify-content: center;
     cursor: pointer;
     z-index: $z-slider-nav;
+    transition: $transition-fast;
+
+    &:hover {
+        transform: scale(1.05) translateY(-50%);
+    }
+    &:active {
+        transform: scale(0.9) translateY(-50%);
+    }
 }
 
 .carousel__nav--prev {
@@ -144,6 +152,18 @@
                     border: none;
                     color: var(--color-secondary);
                     font-size: pxToRem(28);
+
+                    transition: $transition-fast;
+                    transform-origin: center;
+
+                    &:hover {
+                        transform: scale(1.01);
+                        text-shadow: pxToRem(2) pxToRem(2) rgba(0, 0, 0, 0.2);
+                    }
+                    &:active {
+                        text-shadow: none;
+                        transform: scale(1);
+                    }
                 }
             }
         }
@@ -168,6 +188,16 @@
                 background-color: var(--color-content);
                 color: var(--color-white);
                 cursor: pointer;
+                transition: $transition-fast;
+
+                &:hover {
+                    transform: scale(1.04);
+                    box-shadow: pxToRem(4) pxToRem(4) rgba(0, 0, 0, 0.2);
+                }
+                &:active {
+                    box-shadow: none;
+                    transform: scale(1);
+                }
             }
         }
     }

@@ -1,26 +1,21 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-:root {
-    --color-secondary: #{$color-green-vogue};
-}
-
 .topics-section {
-    width: 100%;
-    padding-block: 28px;
+    min-height: pxToRem(295);
     overflow-x: hidden;
     background: linear-gradient(
         to right,
         var(--color-secondary),
         rgb(from var(--color-secondary) r g b / 0.9)
     );
-    min-height: 295px;
     display: flex;
     align-items: center;
 
     &__inner {
         width: 100%;
-        max-width: 743px;
+        max-width: pxToRem(743);
+        padding: pxToRem(12);
         margin-inline: auto;
         display: flex;
         flex-direction: column;
@@ -53,7 +48,7 @@
     cursor: pointer;
     width: fit-content;
     height: pxToRem(56);
-    padding: 24px;
+    padding: pxToRem(24);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -66,14 +61,22 @@
 }
 
 @include respond-tablet {
+    .topics-section {
+        min-height: pxToRem(332);
+    }
+
+    .topics-list {
+        gap: pxToRem(20);
+    }
+
     .topic-pill {
         height: pxToRem(64);
-        padding: 24px;
+        padding: pxToRem(24);
     }
 }
 
 @include respond-desktop {
     .topics-section {
-        min-height: 418px;
+        min-height: pxToRem(418);
     }
 }
