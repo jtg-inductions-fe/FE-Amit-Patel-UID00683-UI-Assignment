@@ -1,0 +1,293 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.carousel-section {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--color-white);
+
+    &__title {
+        color: var(--color-content);
+        padding: pxToRem(16);
+        text-align: center;
+    }
+
+    &__inner {
+        padding-block: pxToRem(16);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        background-color: var(--color-background-light);
+        gap: pxToRem(16);
+    }
+
+    .carousel__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: pxToRem(16);
+        max-width: 100%;
+    }
+}
+
+.carousel__wrapper {
+    width: 100%;
+    max-width: pxToRem(725);
+}
+
+.carousel__slide {
+    img {
+        box-shadow: pxToRem(2) pxToRem(4) pxToRem(10) rgba(0, 0, 0, 0.1);
+        height: pxToRem(247);
+        width: pxToRem(179);
+    }
+}
+
+.carousel__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: pxToRem(50);
+    height: pxToRem(50);
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    box-shadow: 0 pxToRem(4) pxToRem(4) var(--color-background-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: $z-slider-nav;
+}
+
+.carousel__nav--prev {
+    display: none;
+    left: pxToRem(4);
+}
+
+.carousel__nav--next {
+    display: none;
+    right: pxToRem(4);
+}
+
+.carousel__pagination {
+    display: flex;
+
+    .swiper-pagination-bullet {
+        width: pxToRem(8);
+        height: pxToRem(8);
+        border-radius: 50%;
+        background-color: var(--color-background-dark);
+        opacity: 0.7;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: var(--color-secondary);
+    }
+}
+
+.recommendation-card {
+    height: pxToRem(295);
+    width: pxToRem(380);
+    align-content: center;
+    box-sizing: border-box;
+    background-color: var(--color-white);
+    border-radius: pxToRem(10);
+    box-shadow: pxToRem(2) pxToRem(4) pxToRem(2) rgba(0, 0, 0, 0.15);
+    padding: pxToRem(16);
+
+    .recommendation-card__body {
+        display: flex;
+        gap: pxToRem(10);
+        .recommendation-card__content {
+            max-width: pxToRem(172);
+            display: flex;
+            flex-direction: column;
+
+            .recommendation-card__info {
+                display: flex;
+                flex-direction: column;
+                gap: pxToRem(4);
+
+                .recommendation-card__rating {
+                    font-size: pxToRem(8);
+                    color: var(--color-content);
+                    display: flex;
+                    height: pxToRem(10);
+                }
+
+                .recommendation-card__eyebrow {
+                    color: var(--color-content);
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 0;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+
+                .recommendation-card__title {
+                    color: var(--color-secondary);
+                }
+            }
+
+            .recommendation-card__meta {
+                padding-block: pxToRem(16);
+                display: flex;
+                gap: pxToRem(12);
+
+                .icon {
+                    background: none;
+                    border: none;
+                    color: var(--color-secondary);
+                    font-size: pxToRem(28);
+                }
+            }
+        }
+
+        .recommendation-card__media {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: pxToRem(32);
+
+            img {
+                height: pxToRem(170);
+                width: pxToRem(162);
+                object-fit: cover;
+            }
+
+            .recommendation-card__cta {
+                height: pxToRem(50);
+                width: pxToRem(162);
+                border: none;
+                background-color: var(--color-content);
+                color: var(--color-white);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@include respond-tablet {
+    .carousel-section {
+        &__inner {
+            height: pxToRem(760);
+        }
+    }
+
+    .carousel__nav--prev {
+        display: flex;
+    }
+
+    .carousel__nav--next {
+        display: flex;
+    }
+
+    .carousel__slide {
+        img {
+            height: inherit;
+            width: inherit;
+            transform: scale(0.8);
+            transform-origin: center center;
+        }
+    }
+
+    .carousel__pagination {
+        gap: pxToRem(4);
+
+        .swiper-pagination-bullet {
+            width: pxToRem(12);
+            height: pxToRem(12);
+        }
+    }
+
+    .recommendation-card {
+        height: pxToRem(266);
+        width: pxToRem(588);
+        border-radius: pxToRem(12);
+
+        .recommendation-card__body {
+            gap: pxToRem(50);
+            .recommendation-card__content {
+                max-width: pxToRem(342);
+                justify-content: space-between;
+
+                .recommendation-card__info {
+                    padding-block: pxToRem(10);
+                    gap: pxToRem(8);
+
+                    .recommendation-card__eyebrow {
+                        -webkit-line-clamp: 1;
+                        line-clamp: 0;
+                    }
+                }
+
+                .recommendation-card__meta {
+                    padding-block: pxToRem(16);
+                }
+            }
+
+            .recommendation-card__media {
+                padding-block: pxToRem(8);
+                gap: pxToRem(20);
+
+                img {
+                    padding-inline: pxToRem(8);
+                    height: pxToRem(152);
+                    width: pxToRem(146);
+                }
+
+                .recommendation-card__cta {
+                    width: pxToRem(146);
+                }
+            }
+        }
+    }
+}
+
+@include respond-desktop {
+    .carousel-section {
+        .carousel__container {
+            gap: pxToRem(0);
+        }
+
+        &__inner {
+            height: pxToRem(506);
+            flex-direction: row;
+            gap: pxToRem(60);
+        }
+    }
+
+    .carousel__container {
+        max-width: pxToRem(745);
+    }
+
+    .recommendation-card {
+        height: pxToRem(278);
+        width: pxToRem(588);
+
+        .recommendation-card__body {
+            .recommendation-card__content {
+                max-width: pxToRem(385);
+                .recommendation-card__info {
+                    padding-block: 0;
+                    gap: pxToRem(4);
+
+                    .recommendation-card__eyebrow {
+                        -webkit-line-clamp: 2;
+                        line-clamp: 0;
+                    }
+                }
+            }
+
+            .recommendation-card__media {
+                gap: pxToRem(36);
+            }
+        }
+    }
+}

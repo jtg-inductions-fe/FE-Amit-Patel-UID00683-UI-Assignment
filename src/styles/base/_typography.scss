@@ -5,7 +5,6 @@ body {
     font-family: 'Poppins';
     font-size: pxToRem(16);
     line-height: 1.5;
-    letter-spacing: $letter-spacing-tight;
     color: $color-full-black;
 }
 
@@ -23,6 +22,7 @@ input {
 
     &__logo {
         font-family: 'Josefin Sans';
+        letter-spacing: $letter-spacing-tight;
         font-size: pxToRem(30);
         font-weight: 700;
 
@@ -41,7 +41,14 @@ input {
 
     &--h2 {
         font-weight: 700;
-        font-size: pxToRem(32);
+        font-size: pxToRem(18);
+
+        @include respond-tablet {
+            font-size: pxToRem(26);
+        }
+        @include respond-desktop {
+            font-size: pxToRem(32);
+        }
     }
 
     &--h3 {
@@ -120,5 +127,13 @@ input {
 
     &--brand {
         font-size: pxToRem(14);
+    }
+
+    &--eyebrow {
+        font-weight: 700;
+        font-size: pxToRem(16);
+        @include respond-desktop {
+            font-size: pxToRem(32);
+        }
     }
 }
