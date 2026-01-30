@@ -23,8 +23,8 @@
     color: var(--color-secondary);
 }
 
-input::placeholder {
-    color: $color-green-vogue;
+.newsletter__input::placeholder {
+    color: var(--color-secondary);
 }
 
 .newsletter__form {
