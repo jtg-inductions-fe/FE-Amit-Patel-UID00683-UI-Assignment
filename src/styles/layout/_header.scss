@@ -113,6 +113,16 @@
             background: transparent;
             border: none;
             font-size: pxToRem(38);
+            cursor: pointer;
+            transition: $transition-fast;
+            transform-origin: center;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+            &:active {
+                transform: scale(0.9);
+            }
         }
 
         .icon__label {
