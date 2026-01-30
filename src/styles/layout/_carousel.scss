@@ -104,6 +104,7 @@
         display: flex;
         gap: pxToRem(10);
         .recommendation-card__content {
+            max-width: pxToRem(172);
             display: flex;
             flex-direction: column;
 
@@ -112,8 +113,20 @@
                 flex-direction: column;
                 gap: pxToRem(4);
 
+                .recommendation-card__rating {
+                    font-size: pxToRem(8);
+                    color: var(--color-content);
+                    display: flex;
+                    height: pxToRem(10);
+                }
+
                 .recommendation-card__eyebrow {
                     color: var(--color-content);
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 0;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
                 }
 
                 .recommendation-card__title {
@@ -201,11 +214,17 @@
         .recommendation-card__body {
             gap: pxToRem(50);
             .recommendation-card__content {
+                max-width: pxToRem(342);
                 justify-content: space-between;
 
                 .recommendation-card__info {
                     padding-block: pxToRem(10);
                     gap: pxToRem(8);
+
+                    .recommendation-card__eyebrow {
+                        -webkit-line-clamp: 1;
+                        line-clamp: 0;
+                    }
                 }
 
                 .recommendation-card__meta {
@@ -254,9 +273,15 @@
 
         .recommendation-card__body {
             .recommendation-card__content {
+                max-width: pxToRem(385);
                 .recommendation-card__info {
                     padding-block: 0;
                     gap: pxToRem(4);
+
+                    .recommendation-card__eyebrow {
+                        -webkit-line-clamp: 2;
+                        line-clamp: 0;
+                    }
                 }
             }
 
