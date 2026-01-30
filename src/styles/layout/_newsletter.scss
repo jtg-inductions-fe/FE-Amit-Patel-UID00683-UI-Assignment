@@ -67,6 +67,9 @@
 }
 
 @include respond-desktop {
+    .newsletter {
+        padding: pxToRem(20) 0;
+    }
     .newsletter__inner {
         padding-block: pxToRem(32);
     }
