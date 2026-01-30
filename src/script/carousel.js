@@ -4,37 +4,46 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+/**
+ * Initializes Swiper carousels on the page.
+ * Supports multiple carousel instances.
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.carousel__wrapper');
-    if (!container) return;
+    const carousels = document.querySelectorAll('.carousel__wrapper');
 
-    new Swiper(container, {
-        modules: [Navigation, Pagination, A11y],
+    if (!carousels.length) return;
 
-        loop: true,
-        slidesPerView: 2.2,
-        centeredSlides: true,
+    carousels.forEach((carousel) => {
+        new Swiper(carousel, {
+            modules: [Navigation, Pagination, A11y],
 
-        breakpoints: {
-            550: {
-                slidesPerView: 3,
+            loop: true,
+            slidesPerView: 2.2,
+            centeredSlides: true,
+
+            breakpoints: {
+                550: {
+                    slidesPerView: 3,
+                },
             },
-        },
 
-        navigation: {
-            nextEl: '.carousel__nav--next',
-            prevEl: '.carousel__nav--prev',
-        },
+            navigation: {
+                nextEl: carousel.querySelector('.carousel__nav--next'),
+                prevEl: carousel.querySelector('.carousel__nav--prev'),
+            },
 
-        pagination: {
-            el: '.carousel__pagination',
-            clickable: true,
-            renderBullet: (index, className) =>
-                `<button type="button" class="${className}" aria-label="Ir para página ${index + 1}"></button>`,
-        },
+            pagination: {
+                el: carousel
+                    .closest('.carousel__container')
+                    ?.querySelector('.carousel__pagination'),
+                clickable: true,
+                renderBullet: (index, className) =>
+                    `<button type="button" class="${className}" aria-label="Ir para página ${index + 1}"></button>`,
+            },
 
-        a11y: {
-            enabled: true,
-        },
+            a11y: {
+                enabled: true,
+            },
+        });
     });
 });

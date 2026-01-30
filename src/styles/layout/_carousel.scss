@@ -40,6 +40,7 @@
 
 .carousel__slide {
     img {
+        box-shadow: pxToRem(2) pxToRem(4) pxToRem(10) rgba(0, 0, 0, 0.1);
         height: pxToRem(247);
         width: pxToRem(179);
     }
@@ -49,17 +50,18 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: pxToRem(40);
-    height: pxToRem(40);
+    width: pxToRem(50);
+    height: pxToRem(50);
     border-radius: 50%;
     border: none;
     background-color: var(--color-secondary);
     color: var(--color-white);
+    box-shadow: 0 pxToRem(4) pxToRem(4) var(--color-background-dark);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 5;
+    z-index: $z-slider-nav;
 }
 
 .carousel__nav--prev {
@@ -89,64 +91,73 @@
 }
 
 .recommendation-card {
-    height: pxToRem(330);
-    width: pxToRem(386);
+    height: pxToRem(295);
+    width: pxToRem(380);
     align-content: center;
     box-sizing: border-box;
     background-color: var(--color-white);
-    border-radius: pxToRem(8);
-    box-shadow: 0 pxToRem(6) pxToRem(12) rgba(0, 0, 0, 0.08);
+    border-radius: pxToRem(10);
+    box-shadow: pxToRem(2) pxToRem(4) pxToRem(2) rgba(0, 0, 0, 0.15);
     padding: pxToRem(16);
-}
 
-.recommendation-card__body {
-    display: flex;
-    align-items: center;
-}
+    .recommendation-card__body {
+        display: flex;
+        gap: 10px;
+        .recommendation-card__content {
+            display: flex;
+            flex-direction: column;
 
-.recommendation-card__content {
-    padding-inline: pxToRem(12);
-}
+            .recommendation-card__info {
+                display: flex;
+                flex-direction: column;
+                gap: pxToRem(4);
 
-.recommendation-card__eyebrow {
-    color: var(--color-content);
-}
+                .recommendation-card__eyebrow {
+                    color: var(--color-content);
+                }
 
-.recommendation-card__title {
-    color: var(--color-secondary);
-}
+                .recommendation-card__title {
+                    color: var(--color-secondary);
+                }
+            }
 
-.recommendation-card__meta {
-    padding-top: pxToRem(40);
-    display: flex;
-    gap: pxToRem(12);
+            .recommendation-card__meta {
+                padding-block: pxToRem(16);
+                display: flex;
+                gap: pxToRem(12);
 
-    .icon {
-        font-size: pxToRem(28);
+                .icon {
+                    background: none;
+                    border: none;
+                    color: var(--color-secondary);
+                    font-size: pxToRem(28);
+                }
+            }
+        }
+
+        .recommendation-card__media {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: pxToRem(32);
+
+            img {
+                height: pxToRem(170);
+                width: pxToRem(162);
+                object-fit: cover;
+            }
+
+            .recommendation-card__cta {
+                height: pxToRem(50);
+                width: pxToRem(162);
+                border: none;
+                background-color: var(--color-content);
+                color: var(--color-white);
+                cursor: pointer;
+            }
+        }
     }
-}
-
-.recommendation-card__media {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: pxToRem(24);
-}
-
-.recommendation-card__media img {
-    width: pxToRem(150);
-    aspect-ratio: 0.9;
-    object-fit: cover;
-}
-
-.recommendation-card__cta {
-    width: pxToRem(150);
-    border: none;
-    padding: pxToRem(10) pxToRem(16);
-    background-color: var(--color-content);
-    color: var(--color-white);
-    cursor: pointer;
 }
 
 .carousel__icon {
@@ -159,12 +170,8 @@
 @include respond-tablet {
     .carousel-section {
         &__inner {
-            padding: pxToRem(32) pxToRem(60);
+            height: pxToRem(760);
         }
-    }
-
-    .carousel__wrapper {
-        width: pxToRem(725);
     }
 
     .carousel__nav--prev {
@@ -179,7 +186,7 @@
         img {
             height: inherit;
             width: inherit;
-            transform: scale(0.75);
+            transform: scale(0.8);
             transform-origin: center center;
         }
     }
@@ -196,8 +203,38 @@
     .recommendation-card {
         height: pxToRem(266);
         width: pxToRem(588);
-        padding: pxToRem(20);
         border-radius: pxToRem(12);
+
+        .recommendation-card__body {
+            gap: pxToRem(50);
+            .recommendation-card__content {
+                justify-content: space-between;
+
+                .recommendation-card__info {
+                    padding-block: pxToRem(10);
+                    gap: pxToRem(8);
+                }
+
+                .recommendation-card__meta {
+                    padding-block: pxToRem(16);
+                }
+            }
+
+            .recommendation-card__media {
+                padding-block: pxToRem(8);
+                gap: pxToRem(20);
+
+                img {
+                    padding-inline: pxToRem(8);
+                    height: pxToRem(152);
+                    width: pxToRem(146);
+                }
+
+                .recommendation-card__cta {
+                    width: pxToRem(146);
+                }
+            }
+        }
     }
 }
 
@@ -208,6 +245,7 @@
         }
 
         &__inner {
+            height: pxToRem(506);
             flex-direction: row;
             gap: pxToRem(60);
         }
@@ -218,12 +256,20 @@
     }
 
     .recommendation-card {
-        width: pxToRem(588);
         height: pxToRem(278);
-        flex-shrink: 0;
-    }
+        width: pxToRem(588);
 
-    .recommendation-card__meta {
-        padding-top: pxToRem(0);
+        .recommendation-card__body {
+            .recommendation-card__content {
+                .recommendation-card__info {
+                    padding-block: 0;
+                    gap: pxToRem(4);
+                }
+            }
+
+            .recommendation-card__media {
+                gap: pxToRem(36);
+            }
+        }
     }
 }
