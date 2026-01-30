@@ -53,14 +53,14 @@ input {
 
     &--h3 {
         font-weight: 300;
-        font-size: 16px;
+        font-size: pxToRem(16);
 
         @include respond-tablet {
-            font-size: 24px;
+            font-size: pxToRem(24);
         }
 
         @include respond-desktop {
-            font-size: 32px;
+            font-size: pxToRem(32);
         }
     }
 

@@ -2,7 +2,6 @@
 @use '../abstracts/mixins' as *;
 
 .carousel-section {
-    width: 100%;
     overflow-x: hidden;
     background-color: var(--color-white);
 
@@ -152,6 +151,7 @@
                     border: none;
                     color: var(--color-secondary);
                     font-size: pxToRem(28);
+                    cursor: pointer;
 
                     transition: $transition-fast;
                     transform-origin: center;
@@ -163,6 +163,7 @@
                     &:active {
                         text-shadow: none;
                         transform: scale(1);
+                        color: var(--color-primary);
                     }
                 }
             }
@@ -206,7 +207,7 @@
 @include respond-tablet {
     .carousel-section {
         &__inner {
-            height: pxToRem(760);
+            padding: pxToRem(64);
         }
     }
 
@@ -287,7 +288,6 @@
         }
 
         &__inner {
-            height: pxToRem(506);
             flex-direction: row;
             gap: pxToRem(60);
         }

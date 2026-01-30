@@ -2,7 +2,6 @@
 @use '../abstracts/mixins' as *;
 
 .topics-section {
-    min-height: pxToRem(295);
     overflow-x: hidden;
     background: linear-gradient(
         to right,
@@ -15,7 +14,7 @@
     &__inner {
         width: 100%;
         max-width: pxToRem(743);
-        padding: pxToRem(12);
+        padding: pxToRem(24);
         margin-inline: auto;
         display: flex;
         flex-direction: column;
@@ -47,8 +46,7 @@
     border: 0;
     cursor: pointer;
     width: fit-content;
-    height: pxToRem(56);
-    padding: pxToRem(24);
+    padding: pxToRem(16) pxToRem(24);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -62,21 +60,20 @@
 
 @include respond-tablet {
     .topics-section {
-        min-height: pxToRem(332);
+        &__inner {
+            padding: pxToRem(48);
+        }
     }
 
     .topics-list {
         gap: pxToRem(20);
     }
-
-    .topic-pill {
-        height: pxToRem(64);
-        padding: pxToRem(24);
-    }
 }
 
 @include respond-desktop {
     .topics-section {
-        min-height: pxToRem(418);
+        &__inner {
+            padding: pxToRem(60);
+        }
     }
 }
