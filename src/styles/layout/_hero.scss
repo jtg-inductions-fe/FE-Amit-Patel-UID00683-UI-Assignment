@@ -2,7 +2,7 @@
 @use '../abstracts/mixins' as *;
 
 .hero {
-    padding: pxToRem(28);
+    padding-block: pxToRem(28);
     color: var(--color-white);
     background: linear-gradient(
         to right,
@@ -55,7 +55,7 @@
 
 @include respond-tablet {
     .hero {
-        padding: pxToRem(64);
+        padding-block: pxToRem(64);
         background: linear-gradient(
             to right,
             var(--color-secondary),

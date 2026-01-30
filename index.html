@@ -390,7 +390,11 @@
                         TÓPICOS VISITADOS RECENTEMENTE
                     </h2>
 
-                    <ul class="topics-list" role="list">
+                    <ul
+                        class="topics-list"
+                        role="list"
+                        aria-label="slide de livros"
+                    >
                         <li>
                             <div class="label--topic topic-pill">Android</div>
                         </li>
@@ -420,6 +424,52 @@
                             <div class="label--topic topic-pill">Python</div>
                         </li>
                     </ul>
+                </div>
+            </section>
+
+            <!-- newsletter -->
+            <section
+                class="container newsletter"
+                aria-labelledby="newsletter-heading"
+            >
+                <div class="newsletter__inner">
+                    <!-- Text -->
+                    <div class="newsletter__content">
+                        <h2
+                            id="newsletter-heading"
+                            class="heading--h4 newsletter__title"
+                        >
+                            Fique por dentro das novidades!
+                        </h2>
+                        <p class="text--paragraph--v2 newsletter__subtitle">
+                            Atualizações de e-books, novos livros, promoções e
+                            outros.
+                        </p>
+                    </div>
+
+                    <!-- Email -->
+                    <form
+                        class="newsletter__form"
+                        aria-label="Newsletter subscription form"
+                    >
+                        <div class="newsletter__input-wrapper">
+                            <span
+                                class="newsletter__icon icon icon-email"
+                                aria-hidden="true"
+                            ></span>
+
+                            <input
+                                id="newsletter-email"
+                                class="newsletter__input"
+                                type="email"
+                                name="email"
+                                placeholder="Cadastre seu e-mail"
+                                aria-label="Email address"
+                                aria-required="true"
+                                required
+                            />
+                        </div>
+                    </form>
                 </div>
             </section>
         </main>

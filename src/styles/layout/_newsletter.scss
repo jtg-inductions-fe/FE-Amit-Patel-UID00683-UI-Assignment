@@ -1,0 +1,73 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.newsletter {
+    padding: pxToRem(20);
+    background-color: var(--color-white);
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+
+    &__inner {
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        gap: pxToRem(16);
+    }
+}
+
+.newsletter__content {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(12);
+    color: var(--color-secondary);
+}
+
+.newsletter__input::placeholder {
+    color: var(--color-secondary);
+}
+
+.newsletter__form {
+    height: pxToRem(44);
+    max-width: 100%;
+    padding-inline: pxToRem(16);
+    border: pxToRem(1) solid var(--color-secondary);
+    display: flex;
+    border-radius: pxToRem(24);
+    background-color: var(--color-white);
+}
+
+.newsletter__input-wrapper {
+    display: flex;
+    gap: pxToRem(10);
+}
+
+.newsletter__icon {
+    align-self: center;
+    color: var(--color-secondary);
+    font-size: pxToRem(24);
+}
+
+.newsletter__input {
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--color-text);
+}
+
+@include respond-tablet {
+    .newsletter__inner {
+        padding-block: pxToRem(16);
+        padding-inline: pxToRem(120);
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: pxToRem(40);
+    }
+}
+
+@include respond-desktop {
+    .newsletter__inner {
+        padding-block: pxToRem(32);
+    }
+}
