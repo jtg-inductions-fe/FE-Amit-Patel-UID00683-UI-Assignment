@@ -3,7 +3,7 @@
 
 .footer {
     background-color: var(--color-white);
-    border-top: pxToRem(1) solid rgba(0, 0, 0, 0.3);
+    border-top: pxToRem(1) solid var(--color-border-light);
 
     &__container {
         padding: pxToRem(32) pxToRem(24);
@@ -48,7 +48,7 @@
     }
 
     &__icon {
-        filter: grayscale(150%) contrast(80%) brightness(150%);
+        filter: grayscale(100%) contrast(80%) brightness(150%);
         clip-path: circle(50% at center);
         object-fit: cover;
         width: pxToRem(35);
@@ -81,7 +81,7 @@
         &__column {
             flex: 1;
             padding-left: pxToRem(20);
-            border-left: pxToRem(1) solid rgba(0, 0, 0, 0.3);
+            border-left: pxToRem(1) solid var(--color-border-light);
         }
     }
 }
