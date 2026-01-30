@@ -16,6 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const swiperInstances = [];
 
     carousels.forEach((carousel) => {
+        const paginationEl = carousel
+            .closest('.carousel__container')
+            ?.querySelector('.carousel__pagination');
+
+        if (!paginationEl) {
+            return;
+        }
+
         const instance = new Swiper(carousel, {
             modules: [Navigation, Pagination, A11y],
 
@@ -35,9 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
 
             pagination: {
-                el: carousel
-                    .closest('.carousel__container')
-                    ?.querySelector('.carousel__pagination'),
+                el: paginationEl,
                 clickable: true,
                 renderBullet: (index, className) =>
                     `<button type="button" class="${className}" aria-label="Ir para página ${index + 1}"></button>`,
