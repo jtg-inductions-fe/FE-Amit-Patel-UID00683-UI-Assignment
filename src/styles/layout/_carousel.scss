@@ -102,7 +102,7 @@
 
     .recommendation-card__body {
         display: flex;
-        gap: 10px;
+        gap: pxToRem(10);
         .recommendation-card__content {
             display: flex;
             flex-direction: column;

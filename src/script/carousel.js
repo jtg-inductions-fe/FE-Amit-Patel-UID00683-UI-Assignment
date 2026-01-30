@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!carousels.length) return;
 
+    const swiperInstances = [];
+
     carousels.forEach((carousel) => {
-        new Swiper(carousel, {
+        const instance = new Swiper(carousel, {
             modules: [Navigation, Pagination, A11y],
 
             loop: true,
@@ -45,5 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 enabled: true,
             },
         });
+        swiperInstances.push(instance);
     });
 });
